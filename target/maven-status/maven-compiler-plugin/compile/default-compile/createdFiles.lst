@@ -1,0 +1,8 @@
+com\NuaDashboard\model\UserModelRequestAdd.class
+com\NuaDashboard\entity\UserEntity.class
+com\NuaDashboard\model\UserModelResultCnx.class
+com\NuaDashboard\model\UserModelResultAdd.class
+com\NuaDashboard\angularbeans\AngularbeanUserCnx.class
+com\NuaDashboard\angularbeans\AngularbeanUserInsc.class
+com\NuaDashboard\model\UserModelRequestCnx.class
+com\NuaDashboard\service\UserEntityService.class
