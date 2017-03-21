@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="body-full-height">
+<html lang="en" class="body-full-height" >
     <head>        
         <!-- META SECTION -->
         <title>Joli Admin - Responsive Bootstrap Admin Template</title>            
@@ -12,9 +12,25 @@
         
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
-        <!-- EOF CSS INCLUDE -->                                    
+        <!-- EOF CSS INCLUDE --> 
+        
+        
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-aria/angular-aria.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+		<script src="bower_components/angular-material/angular-material.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script type="text/javascript" src="angular-beans.js"></script> 
+		
+		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
+		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
+		
+		<script type="text/javascript" src="js/module.js"></script>
+        
+                                       
     </head>
-    <body>
+    <body ng-app="myModule" ng-controller="CtrlInsc as vm">
         
         <div class="login-container">
         
@@ -22,26 +38,39 @@
                 <div class="login-logo"></div>
                 <div class="login-body">
                     <div class="login-title"><strong>Log In</strong> to your account</div>
-                    <form action="index.html" class="form-horizontal" method="post">
-                    <div class="form-group">
+                    <form  class="form-horizontal" >
+                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="E-mail"/>
+                            <input type="text" class="form-control" placeholder="userName" ng-model="vm.angularbeanUserInsc.user.userName" />
                         </div>
                     </div>
-                    <div class="form-group">
+                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="password" class="form-control" placeholder="Password"/>
+                            <input type="password" class="form-control" placeholder="Password" ng-model="vm.angularbeanUserInsc.user.password"/>
                         </div>
                     </div>
+                      <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="password" class="form-control" placeholder="repeat password" ng-model="vm.angularbeanUserInsc.user.confPassword"/>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="email" class="form-control" placeholder="E-mail" ng-model="vm.angularbeanUserInsc.user.email"/>
+                        </div>
+                    </div>
+                   
+                   
                     <div class="form-group">
                         <div class="col-md-6">
                             <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-info btn-block">Log In</button>
+                            <button class="btn btn-info btn-block" ng-click="addUserCtrlJs(vm.angularbeanUserInsc.user)" >inscription</button>
                         </div>
                     </div>
-                    <div class="login-or">OR</div>
+                    <div class="login-or">{{response}}</div>
                     <div class="form-group">
                         <div class="col-md-4">
                             <button class="btn btn-info btn-block btn-twitter"><span class="fa fa-twitter"></span> Twitter</button>
@@ -59,9 +88,7 @@
                     </form>
                 </div>
                 <div class="login-footer">
-                    <div class="pull-left">
-                        &copy; 2014 AppName
-                    </div>
+                  
                     <div class="pull-right">
                         <a href="#">About</a> |
                         <a href="#">Privacy</a> |
