@@ -22,7 +22,9 @@ function CtrlInsc(angularbeanUserInsc, $scope) {
 					
 				     vm.angularbeanUserInsc.addUserBean(data).then(function(msgUserAdd){
 						("this is the response for adding user : " + msgUserAdd);
-						$scope.response=msgUserAdd;
+						$scope.response= "ont été ajouté avec "+msgUserAdd;
+						$window.location.href ="pages-login.html";
+						
 				 });
 
 				}else{

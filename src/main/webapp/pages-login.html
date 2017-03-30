@@ -11,7 +11,7 @@
         <!-- END META SECTION -->
         
         <!-- CSS INCLUDE -->        
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-white.css"/>
         <!-- EOF CSS INCLUDE --> 
         
         
@@ -21,11 +21,11 @@
 		<script src="bower_components/angular-material/angular-material.js"></script>
 		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="angular-beans.js"></script> 
-		
+		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
-		
+		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
       
 
@@ -54,6 +54,9 @@
                         <div class="col-md-6">
                             <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
                         </div>
+                         <div class="col-md-6">
+                            <a href="pages-login-website.html" class="btn btn-link btn-block">inscription</a>
+                        </div>
                         <div class="col-md-6">
                             <button class="btn btn-info btn-block" ng-click="searchUserJs(vm.angularbeanUserCnx.user)">connexion</button>
                         </div>
@@ -63,6 +66,8 @@
                 <div class="login-footer">
                     <div class="pull-left">
                         {{resUserSearsh}}
+                        
+                        
                     </div>
                     <div class="pull-right">
                         <a href="#">About</a> |

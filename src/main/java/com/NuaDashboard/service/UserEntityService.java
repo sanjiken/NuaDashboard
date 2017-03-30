@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.NuaDashboard.entity.RoleEntity;
 import com.NuaDashboard.entity.UserEntity;
 import com.NuaDashboard.model.UserModelRequestAdd;
 import com.NuaDashboard.model.UserModelRequestCnx;
@@ -18,14 +19,14 @@ public class UserEntityService {
 
 
 	@PersistenceContext
-	EntityManager eem;
+	EntityManager em;
 	
 	
 	
 	public String searchService(UserModelRequestCnx user){	
 		try {
 			
-			Query query = eem.createQuery(" SELECT new com.NuaDashboard.model.UserModelRequestCnx(  "
+			Query query = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelRequestCnx(  "
 					   + " u.email,"
 					   + " u.password )   "
 					   + " FROM UserEntity u   "
@@ -71,14 +72,26 @@ public class UserEntityService {
 			
 			
 			try {
+				
+				/*
+				 * get default role
+				 */
+				
+				Query q = em.createQuery("SELECT u FROM RoleEntity u WHERE u.id_role = :p1")
+						.setParameter("p1", 2);
+				
+				RoleEntity role = (RoleEntity)  q.getSingleResult();
+				
 				UserEntity user = new UserEntity();
 				user.setUserName(userRequest.getUserName());
-			
 	            user.setPassword(userRequest.getPassword());
 			    user.setEmail(userRequest.getEmail());
 				user.setIsActivate(false);
+			    user.setNumtel(userRequest.getNumtel());
+				user.setAdress(userRequest.getAdress());
+				user.setIdRole(role);
 				
-				eem.persist(user);
+				em.persist(user);
 			} catch (Exception e) {
 				e.printStackTrace();
 				isSucces = "error";
@@ -105,10 +118,13 @@ public class UserEntityService {
 
 		try {
 			
-			Query query = eem.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultCnx(  "
+			Query query = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultCnx(  "
 						+ " u.id ,      "
 						+ " u.userName, "
-						+ " u.email )   "
+						+ " u.email,    "
+						+"u.numtel,     "
+						+"u.adress,"
+						+"u.idRole.abr )     "
 					   + " FROM UserEntity u   "
 					   + " WHERE u.email = :p1 and u.password= :p2 ")
 				.setParameter("p1", user.getEmail())
@@ -130,7 +146,7 @@ public class UserEntityService {
 		
 		
 		try {
-			Query query = eem.createQuery(" SELECT u  "
+			Query query = em.createQuery(" SELECT u  "
 					   + " FROM UserEntity u   "
 					   + " WHERE u.email = :p1  ")
 				.setParameter("p1", email);
@@ -144,6 +160,31 @@ public class UserEntityService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "mailNotFound";
+		}
+		
+}
+	
+	
+	
+	
+	public String searchRole(Integer userID){
+		
+		
+		try {
+			Query query = em.createQuery(" SELECT u  "
+					   + " FROM RoleEntity u   "
+					   + " WHERE u.id = :p1  ")
+				.setParameter("p1", userID);
+				
+				
+			
+			RoleEntity userResult = (RoleEntity)query.getSingleResult();
+				
+			return userResult.getAbr();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ""+e;
 		}
 		
 }

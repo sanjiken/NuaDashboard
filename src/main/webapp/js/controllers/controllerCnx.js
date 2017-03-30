@@ -26,17 +26,18 @@ function CtrlCnx(angularbeanUserCnx,$scope,$cookies,$window) {
 
 								
 										var findUser = userConnected;
-										console.log("im in getUserConnected");
 										
-										console.log("im in succes after getUserConnected");
 										$cookies.put('email',findUser.email);
 										$cookies.put('id',findUser.id);
-										$cookies.put('id',findUser.userName);
+										$cookies.put('userName',findUser.userName);
+										$cookies.put('numtel',findUser.numtel);
+										$cookies.put('adress',findUser.adress);
+										$cookies.put('role',findUser.role);
 										
-											});
+							});
 							
-							
-							$window.location.href ="index.html";
+						
+							//$window.location.href ="index.html";
 							
 						}
 

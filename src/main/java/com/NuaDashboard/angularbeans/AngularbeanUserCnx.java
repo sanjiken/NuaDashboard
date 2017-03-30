@@ -54,7 +54,13 @@ public class AngularbeanUserCnx {
 		return UserEntityService.searchUserService(user);
 	}
 
+	@Get
+	@NGReturn(model = "getRole")
+	public String getRoleUser(Integer userID) {
+
+		
+		return UserEntityService.searchRole(userID);
 	
-	
+	}
 
 }

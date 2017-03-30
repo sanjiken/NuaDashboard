@@ -3,9 +3,11 @@
 	<persistence-unit name="version1">
 		<jta-data-source>java:jboss/postgresDS</jta-data-source>
 		<class>com.NuaDashboard.entity.UserEntity</class>
+		<class>com.NuaDashboard.entity.ProjetEntity</class>
+		<class>com.NuaDashboard.entity.RoleEntity</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy" />
 			<property name="hibernate.connection.charSet" value="UTF-8" />
 			<property name="hibernate.show_sql" value="true" />
