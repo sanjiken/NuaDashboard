@@ -14,21 +14,37 @@ function CtrlCnx(angularbeanUserCnx,$scope,$cookies,$window) {
 			$scope.resUserSearsh == "password null !!!";
 		} else {
 			vm.angularbeanUserCnx.userSearsh(data).then(function(resUserSearsh) {
+				console.log("RES userSearsh : "+ resUserSearsh);
+						
+				
 						$scope.resUserSearsh = resUserSearsh;
 
-						if ($scope.resUserSearsh == "succes") {
+						if ($scope.resUserSearsh == "Succes") {
 							// get user information
+							console.log("im in succes");
 							vm.angularbeanUserCnx.getUserConnected(data).then(function(userConnected) {
 
-										$scope.findUser = userConnected;
-													
-											});
+								
+										var findUser = userConnected;
+										
+										$cookies.put('email',findUser.email);
+										$cookies.put('id',findUser.id);
+										$cookies.put('userName',findUser.userName);
+										$cookies.put('numtel',findUser.numtel);
+										$cookies.put('adress',findUser.adress);
+										$cookies.put('role',findUser.role);
+										
+										if(findUSer.isActivate == true && findUser.isDeleted == false)
+										{
+										$window.location.href ="index.html";
+										}else{
+									     console.log(" ne pas encore ajouter aux membres ");
+									     
+										}
+										
+							});
 							
-							$cookies.put('email',findUser.email);
-							$cookies.put('id',findUser.id);
-							$cookies.put('id',findUser.userName);
-							
-							//$window.location.href ="/NuaDashboard/index.html";
+						
 							
 						}
 

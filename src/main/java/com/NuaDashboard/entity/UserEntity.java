@@ -34,6 +34,10 @@ public class UserEntity implements Serializable {
 
 	@Column(name = "IS_ACTIVATE")
 	private Boolean isActivate;
+	
+	@Column(name = "IS_DELETED")
+	private Boolean isDeleted;
+	
 
 	@Column(name = "NUMTEL")
 	private String numtel;
@@ -116,6 +120,20 @@ public class UserEntity implements Serializable {
 	}
 
 	/**
+	 * @return the isDeleted
+	 */
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	/**
+	 * @param isDeleted the isDeleted to set
+	 */
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	/**
 	 * @return the numtel
 	 */
 	public String getNumtel() {
@@ -164,6 +182,11 @@ public class UserEntity implements Serializable {
 		return serialVersionUID;
 	}
 
+	
+	
+	
+	
+	
 	
 
 

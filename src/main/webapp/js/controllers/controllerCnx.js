@@ -23,21 +23,32 @@ function CtrlCnx(angularbeanUserCnx,$scope,$cookies,$window) {
 							// get user information
 							console.log("im in succes");
 							vm.angularbeanUserCnx.getUserConnected(data).then(function(userConnected) {
-
-								
-										var findUser = userConnected;
+										console.dir(userConnected);
 										
-										$cookies.put('email',findUser.email);
-										$cookies.put('id',findUser.id);
-										$cookies.put('userName',findUser.userName);
-										$cookies.put('numtel',findUser.numtel);
-										$cookies.put('adress',findUser.adress);
-										$cookies.put('role',findUser.role);
+								
+										$scope.findUser = userConnected;
+										
+										console.dir($scope.findUser);
+										console.log("ooo" + $scope.findUser.isActivate);
+										
+										$cookies.put('email',$scope.findUser.email);
+										$cookies.put('id',$scope.findUser.id);
+										$cookies.put('userName',$scope.findUser.userName);
+										$cookies.put('numtel',$scope.findUser.numtel);
+										$cookies.put('adress',$scope.findUser.adress);
+										$cookies.put('role',$scope.findUser.role);
+										
+										if($scope.findUser.isActivate == true && $scope.findUser.isDeleted == false)
+										{
+										$window.location.href ="index.html";
+										}else{
+									     console.log(" ne pas encore ajouter aux membres ");
+									     
+										}
 										
 							});
 							
 						
-							//$window.location.href ="index.html";
 							
 						}
 

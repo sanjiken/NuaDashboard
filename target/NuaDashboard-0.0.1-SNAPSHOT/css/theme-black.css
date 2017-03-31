@@ -44,11 +44,11 @@ body {
   min-height: 100%;
   padding: 0px;
   margin: 0px;
-  background: #f5f5f5 url('../img/bg.png') left top repeat;
+  background:#ececeb ;
   position: relative;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
-  color: #656d78;
+  color:rgb(221, 44, 0);
   overflow-x: hidden;
 }
 .body-full-height {
@@ -82,7 +82,7 @@ body {
   float: left;
   min-height: 100%;
   position: relative;
-  background: #2f323a;
+  background: #ececeb;
   /* SIDEBAR */
   /* END SIDEBAR */
   /* CONTENT */
@@ -268,7 +268,7 @@ body.page-container-boxed .page-container {
   z-index: 3;
 }
 .x-navigation {
-  background: #2f323a;
+  background:#ececeb;
   /* NAV LIST ELEMENT */
   /* END NAV LIST ELEMENT */
   /* NAV LIST FIRST ELEMENT */
@@ -297,18 +297,18 @@ body.page-container-boxed .page-container {
   float: left;
   width: 100%;
   line-height: 19px;
-  color: #ffffff;
+  color: #696969;
   font-size: 13px;
   font-weight: 400;
   padding: 15px 10px 15px 15px;
   text-decoration: none;
   border-bottom: none;
   vertical-align: text-bottom;
-  background:#000;
+  background:#ececeb;
 }
 .x-navigation li > a .fa,
 .x-navigation li > a .glyphicon {
-  color: #ffffff;
+  color:#0062b0;
   text-align: center;
   width: 20px;
   font-size: 14px;
@@ -321,7 +321,7 @@ body.page-container-boxed .page-container {
   transition: color 200ms ease;
 }
 .x-navigation li > a:hover {
-  background: #3a3e48;
+  background:rgb(189,189,189);
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -330,10 +330,10 @@ body.page-container-boxed .page-container {
 }
 .x-navigation li > a:hover .fa,
 .x-navigation li > a:hover .glyphicon {
-  color: #57a9a8;
+  color: #fafafa;
 }
 .x-navigation li > ul {
-  background: #24262c;
+  background: #ececeb;
   max-height: 0px;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
@@ -343,20 +343,20 @@ body.page-container-boxed .page-container {
   overflow: hidden;
 }
 .x-navigation li > ul li > a {
-  color: #ffffff;
+  color: rgb(0, 98, 176);
   font-size: 12px;
   line-height: 19px;
   font-weight: 400;
   padding: 12px 10px;
-  border-bottom-color: #1f2126;
+  border-bottom-color: rgb(240, 239, 239);
 }
 .x-navigation li > ul li > a:hover {
-  background: #1f2126;
-  color: #ffffff;
+  background:#0062b0;
+  color: #fafafa;
 }
 .x-navigation li > ul li.active > a {
-  background: #1f2126;
-  color: #ffffff;
+  background:#0062b0;
+  color: #fafafa;
 }
 .x-navigation li.xn-openable:before {
   position: absolute;
@@ -365,7 +365,7 @@ body.page-container-boxed .page-container {
   font-size: 14px;
   width: 20px;
   height: 20px;
-  color: #ffffff;
+  color: #0062b0;
   right: 0px;
   top: 12px;
   cursor: pointer;
@@ -374,7 +374,7 @@ body.page-container-boxed .page-container {
   content: "\f147";
 }
 .x-navigation li.active > a {
-  background: #1caf9a;
+  background:#0062b0;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -383,7 +383,7 @@ body.page-container-boxed .page-container {
 }
 .x-navigation li.active > a .fa,
 .x-navigation li.active > a .glyphicon {
-  color: #fff;
+  color: #fafafa;
 }
 .x-navigation li.active > ul {
   max-height: 1200px;
@@ -393,9 +393,9 @@ body.page-container-boxed .page-container {
 line-height: 20px;
 font-weight: 300;
 font-size: 13px;
-color: #fff;
+color: #333;
 border-bottom: none;
-background: #000;
+background: #ececeb;
 }
 .x-navigation > li.xn-openable:before {
   top: 15px;
@@ -444,7 +444,7 @@ background: #000;
 }
 .x-navigation.x-navigation-horizontal {
   height: 50px;
-  background: #000;
+  background: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal .xn-logo a {
   border-bottom: 0px;
@@ -457,26 +457,26 @@ background: #000;
   padding: 15px;
   border-bottom: 0px;
   line-height: 20px;
-  color: #6b7182;
+  color:#ececeb;
   text-shadow: none;
 }
 .x-navigation.x-navigation-horizontal > li > a:hover {
-  background: #2d3038;
+  background: #0062b0;
 }
 .x-navigation.x-navigation-horizontal > li > a:hover .fa,
 .x-navigation.x-navigation-horizontal > li > a:hover .glyphicon {
-  color: #57a9a8;
+  color: 0062b0;
 }
 .x-navigation.x-navigation-horizontal > li > a .fa,
 .x-navigation.x-navigation-horizontal > li > a .glyphicon {
-  color: #6b7182;
+  color: #0062b0;
 }
 .x-navigation.x-navigation-horizontal > li.active > a {
-  background: #2d3038;
+  background:#0062b0;
 }
 .x-navigation.x-navigation-horizontal > li.active > a .fa,
 .x-navigation.x-navigation-horizontal > li.active > a .glyphicon {
-  color: #57a9a8;
+  color: #fafafa;
 }
 .x-navigation.x-navigation-horizontal > li ul {
   width: 220px;
@@ -492,21 +492,21 @@ background: #000;
   z-index: 3;
 }
 .x-navigation.x-navigation-horizontal > li ul ul.xn-drop-white:after {
-  border-right-color: #FFF;
+  border-right-color: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal > li > ul {
   top: 60px;
   left: 0px;
 }
 .x-navigation.x-navigation-horizontal > li > ul.xn-drop-white:after {
-  border-bottom-color: #FFF;
+  border-bottom-color: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal > li > ul.xn-drop-left {
   left: auto;
   right: 0px;
 }
 .x-navigation.x-navigation-horizontal > li > ul.xn-drop-left.xn-drop-white ul:after {
-  border-left-color: #FFF;
+  border-left-color: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal > li > ul:after {
   bottom: 100%;
@@ -518,7 +518,7 @@ background: #000;
   position: absolute;
   pointer-events: none;
   border-color: rgba(0, 0, 0, 0);
-  border-bottom-color: #2f323a;
+  border-bottom-color: rgb(240, 239, 239);
   border-width: 5px;
   margin-left: -5px;
 }
@@ -534,7 +534,7 @@ background: #000;
   right: auto;
   left: 100%;
   border: solid transparent;
-  border-left-color: #2f323a;
+  border-left-color: rgb(240, 239, 239);
   border-width: 5px;
   margin-right: -5px;
 }
@@ -552,7 +552,7 @@ background: #000;
   position: absolute;
   pointer-events: none;
   border-color: rgba(0, 0, 0, 0);
-  border-right-color: #2f323a;
+  border-right-color: rgb(240, 239, 239);
   border-width: 5px;
   margin-top: -5px;
 }
@@ -606,34 +606,34 @@ background: #000;
   padding-right: 20px;
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white {
-  background: #FFF;
+  background: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white ul {
-  background: #FFF;
+  background: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white ul:after {
-  border-right-color: #FFF;
+  border-right-color: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white li > a {
-  color: #333;
+  color: rgb(240, 239, 239);
   text-shadow: none;
   border-bottom: 1px solid #E9E9E9;
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white li > a:hover {
-  background: #F5F5F5;
-  color: #333;
+  background: rgb(240, 239, 239);
+  color: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white li > a .fa,
 .x-navigation.x-navigation-horizontal ul.xn-drop-white li > a .glyphicon {
-  color: #2f323a;
+  color: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white li.active > a {
-  color: #333;
+  color: rgb(240, 239, 239);
   text-shadow: none;
   border-bottom: 1px solid #E9E9E9;
 }
 .x-navigation.x-navigation-horizontal ul.xn-drop-white li.active.xn-openable:before {
-  color: #333;
+  color: rgb(240, 239, 239);
 }
 .x-navigation.x-navigation-horizontal .xn-icon-button > a {
   padding: 15px 10px;
@@ -848,9 +848,9 @@ background: #000;
   height: 30px;
   padding: 0px 8px 0px 28px;
   line-height: 25px;
-  border: 1px solid #24262c;
-  background: #282b32;
-  color: #AAA;
+  border: 1px solid #777373;
+  background: #c4c5c3;
+  color: rgb(250,250,250);
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -887,7 +887,7 @@ background: #000;
   display: none;
 }
 .x-navigation .x-navigation-control:hover {
-  background: #1d1f24;
+  background: rgb(240, 239, 239);
   border-bottom: 0px;
 }
 .x-navigation .x-navigation-control:before {
@@ -1863,7 +1863,7 @@ ul.panel-controls > li > .dropdown-menu:before {
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(0, 0, 0, 0);
+  border-color: #1560BD;
   border-bottom-color: #E5E5E5;
   border-width: 5px;
   margin-left: -5px;
@@ -1876,22 +1876,22 @@ ul.panel-controls > li > .dropdown-menu:before {
   display: none;
 }
 .x-navigation li > .panel.panel-primary:after {
-  border-bottom-color: #57a9a8;
+  border-bottom-color: rgb(240, 239, 239);
 }
 .x-navigation li > .panel.panel-info:after {
-  border-bottom-color: #1caf9a;
+  border-bottom-color: rgb(240, 239, 239);
 }
 .x-navigation li > .panel.panel-warning:after {
-  border-bottom-color: #1caf9a;
+  border-bottom-color: rgb(240, 239, 239);
 }
 .x-navigation li > .panel.panel-danger:after {
   border-bottom-color: #E04B4A;
 }
 .x-navigation li > .panel.panel-success:after {
-  border-bottom-color: #95b75d;
+  border-bottom-color: rgb(240, 239, 239);
 }
 .resizable-helper {
-  border: 1px dashed #57a9a8;
+  border: 1px dashed rgb(240, 239, 239);
 }
 .xn-panel-dragging .panel-heading:hover {
   cursor: move;
@@ -1982,8 +1982,8 @@ ul.panel-controls > li > .dropdown-menu:before {
   border-color: #DDD;
 }
 .btn-danger {
-  background-color: #E04B4A;
-  border-color: #E04B4A;
+  background-color: #428bca;
+  border-color: #656d78;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -3880,7 +3880,7 @@ td.dataTables_empty {
   padding-top: 100px;
 }
 .login-container .login-box .login-logo {
-  background: url("../img/logo.png") top center no-repeat;
+  background: url("../img/bg.png") left top repeat #57a9a8;
   width: 100%;
   height: 50px;
   float: left;
@@ -3916,7 +3916,7 @@ td.dataTables_empty {
 .login-container .login-box .login-body .login-or {
   width: 40px;
   height: 25px;
-  background: rgba(0, 0, 0, 0.2);
+  background:#77B5FE;
   position: relative;
   margin: 25px auto;
   text-align: center;
@@ -7246,7 +7246,7 @@ li.ext_zip {
   .x-navigation {
     max-height: 50px;
     overflow: hidden;
-    background: #000;
+    background: rgb(240, 239, 239);
   }
   .x-navigation.x-navigation-panel {
     height: 50px;

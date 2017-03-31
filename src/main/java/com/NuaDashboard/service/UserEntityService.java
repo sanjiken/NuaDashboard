@@ -10,7 +10,6 @@ import com.NuaDashboard.entity.RoleEntity;
 import com.NuaDashboard.entity.UserEntity;
 import com.NuaDashboard.model.UserModelRequestAdd;
 import com.NuaDashboard.model.UserModelRequestCnx;
-import com.NuaDashboard.model.UserModelResultAdd;
 import com.NuaDashboard.model.UserModelResultCnx;
 
 @LocalBean
@@ -66,7 +65,7 @@ public class UserEntityService {
 	public String addUserService(UserModelRequestAdd userRequest){
 		
 		String isSucces = "succes" ;
-		
+		System.out.println("UserEntityService.addUserService()"+ userRequest.getAdress());
 		if (userRequest != null) {
 			
 			
@@ -77,16 +76,17 @@ public class UserEntityService {
 				 * get default role
 				 */
 				
-				Query q = em.createQuery("SELECT u FROM RoleEntity u WHERE u.id_role = :p1")
-						.setParameter("p1", 2);
+				Query q = em.createQuery("SELECT u FROM RoleEntity u WHERE u.id = :p1")
+						.setParameter("p1",2);
 				
-				RoleEntity role = (RoleEntity)  q.getSingleResult();
+				RoleEntity role = (RoleEntity) q.getSingleResult();
 				
 				UserEntity user = new UserEntity();
 				user.setUserName(userRequest.getUserName());
 	            user.setPassword(userRequest.getPassword());
 			    user.setEmail(userRequest.getEmail());
 				user.setIsActivate(false);
+				user.setIsDeleted(false);
 			    user.setNumtel(userRequest.getNumtel());
 				user.setAdress(userRequest.getAdress());
 				user.setIdRole(role);
@@ -120,13 +120,15 @@ public class UserEntityService {
 			
 			Query query = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultCnx(  "
 						+ " u.id ,      "
-						+ " u.userName, "
-						+ " u.email,    "
-						+"u.numtel,     "
-						+"u.adress,"
-						+"u.idRole.abr )     "
-					   + " FROM UserEntity u   "
-					   + " WHERE u.email = :p1 and u.password= :p2 ")
+						+ " u.userName ,  "
+						+ " u.isActivate , "
+						+ " u.isDeleted ,  "
+						+ " u.email ,    "
+						+ " u.numtel ,     "
+						+ " u.adress ,"
+						+ " u.idRole.abr )     "
+					   +  " FROM UserEntity u   "
+					   +  " WHERE u.email = :p1 and u.password= :p2 ")
 				.setParameter("p1", user.getEmail())
 				.setParameter("p2", user.getPassword());
 				

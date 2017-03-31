@@ -1,14 +1,17 @@
 function projetCtrl(angularbeanProjet,$scope,$cookies,$window) {
+	var isUser = $cookies.get('email');
+	if(isUser == null || isUser == "" || isUser == "null" || isUser == undefined || isUser == "undefined"){
+		console.log("im not logged ");
+		$window.location.href ="pages-login.html";
+	}
 var vm=this;
 vm.angularbeanProjet=angularbeanProjet;
-console.log("im in projet ctrl");
 var role = $cookies.get('role');
      if(role =="SA" ){
     	 
     		 vm.angularbeanProjet.searchbeanProjetAdmin($cookies.get('id')).then(function (searchProjetAdmin){
     			 $scope.searchProjetAdmin = searchProjetAdmin;
 		
-    			 			console.log("im in projet cotroller in searchbeanProjet pour administrateur");
     		     });
      }else if(role =="clee" ){
 	  

@@ -3,6 +3,8 @@ package com.NuaDashboard.model;
 public class UserModelResultCnx {
 	private Integer id;
 	private String userName;
+	private Boolean isActivate;
+	private Boolean isDeleted;
 	private String email;
 	private String numtel;
     private String adress;
@@ -11,10 +13,13 @@ public class UserModelResultCnx {
 	public UserModelResultCnx() {
 		super();
 	}
-	public UserModelResultCnx(Integer id, String userName, String email, String numtel, String adress, String role) {
+	public UserModelResultCnx(Integer id, String userName, Boolean isActivate, Boolean isDeleted, String email,
+			String numtel, String adress, String role) {
 		super();
 		this.id = id;
 		this.userName = userName;
+		this.isActivate = isActivate;
+		this.isDeleted = isDeleted;
 		this.email = email;
 		this.numtel = numtel;
 		this.adress = adress;
@@ -43,6 +48,30 @@ public class UserModelResultCnx {
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	/**
+	 * @return the isActivate
+	 */
+	public Boolean getIsActivate() {
+		return isActivate;
+	}
+	/**
+	 * @param isActivate the isActivate to set
+	 */
+	public void setIsActivate(Boolean isActivate) {
+		this.isActivate = isActivate;
+	}
+	/**
+	 * @return the isDeleted
+	 */
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+	/**
+	 * @param isDeleted the isDeleted to set
+	 */
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 	/**
 	 * @return the email
@@ -92,7 +121,7 @@ public class UserModelResultCnx {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
+    
 	
 		 
 }
