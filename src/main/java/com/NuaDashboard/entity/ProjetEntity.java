@@ -37,6 +37,9 @@ import javax.persistence.Table;
 		@Column(name = "SUPPORT")
 		private String support;
 		
+		@Column(name = "IS_DELETED")
+		private Boolean isDeleted;
+		
 		@JoinColumn(name = "ID_CLIENT")
 		@ManyToOne
 		private UserEntity idClient;
@@ -73,7 +76,6 @@ import javax.persistence.Table;
 			this.projetName = projetName;
 		}
 
-	
 		/**
 		 * @return the propriete
 		 */
@@ -116,6 +118,22 @@ import javax.persistence.Table;
 			this.support = support;
 		}
 
+		
+
+		/**
+		 * @return the isDeleted
+		 */
+		public Boolean getIsDeleted() {
+			return isDeleted;
+		}
+
+		/**
+		 * @param isDeleted the isDeleted to set
+		 */
+		public void setIsDeleted(Boolean isDeleted) {
+			this.isDeleted = isDeleted;
+		}
+
 		/**
 		 * @return the idClient
 		 */
@@ -152,10 +170,6 @@ import javax.persistence.Table;
 		}
 
 		
-		
-		
-		
-
 
 	
 	}

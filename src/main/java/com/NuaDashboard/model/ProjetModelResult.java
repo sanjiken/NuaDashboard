@@ -1,26 +1,30 @@
 package com.NuaDashboard.model;
 
+import com.NuaDashboard.entity.UserEntity;
+
 public class ProjetModelResult {
 
 	private Integer id;
 	private String projetName;
 	private String propriete;
-	private String statue;
+	private Boolean statue;
 	private String support;
+	private Boolean isDeleted;
 	private Integer idClient;
 	private Integer idInterne;
 	
 	public ProjetModelResult() {
 		super();
 	}
-	public ProjetModelResult(Integer id, String projetName, String propriete, String statue, String support,
-			Integer idClient, Integer idInterne) {
+	public ProjetModelResult(Integer id, String projetName, String propriete, Boolean statue, String support,
+			Boolean isDeleted, Integer idClient, Integer idInterne) {
 		super();
 		this.id = id;
 		this.projetName = projetName;
 		this.propriete = propriete;
 		this.statue = statue;
 		this.support = support;
+		this.isDeleted = isDeleted;
 		this.idClient = idClient;
 		this.idInterne = idInterne;
 	}
@@ -63,13 +67,13 @@ public class ProjetModelResult {
 	/**
 	 * @return the statue
 	 */
-	public String getStatue() {
+	public Boolean getStatue() {
 		return statue;
 	}
 	/**
 	 * @param statue the statue to set
 	 */
-	public void setStatue(String statue) {
+	public void setStatue(Boolean statue) {
 		this.statue = statue;
 	}
 	/**
@@ -83,6 +87,19 @@ public class ProjetModelResult {
 	 */
 	public void setSupport(String support) {
 		this.support = support;
+	}
+	
+	/**
+	 * @return the isDeleted
+	 */
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+	/**
+	 * @param isDeleted the isDeleted to set
+	 */
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 	/**
 	 * @return the idClient
@@ -108,8 +125,6 @@ public class ProjetModelResult {
 	public void setIdInterne(Integer idInterne) {
 		this.idInterne = idInterne;
 	}
-	
-	
 	
 	
 	

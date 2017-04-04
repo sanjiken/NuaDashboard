@@ -9,5 +9,6 @@ com\NuaDashboard\entity\ProjetEntity.class
 com\NuaDashboard\model\ProjetModelResult.class
 com\NuaDashboard\model\UserModelRequestAdd.class
 com\NuaDashboard\angularbeans\AngularbeanProjet.class
+com\NuaDashboard\model\ProjetModelRequest.class
 com\NuaDashboard\angularbeans\AngularbeanUserCnx.class
 com\NuaDashboard\service\UserEntityService.class

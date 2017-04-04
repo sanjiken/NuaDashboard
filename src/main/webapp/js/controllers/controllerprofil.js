@@ -1,8 +1,6 @@
 function profilCtrl(angularbeanUserInsc, $scope , $cookies){
-	console.log("im in profile ctrl thank you !! ");
 	var isUser = $cookies.get('email');
-	console.log("this is cookies empty : "+ isUser);
-	if(isUser == null || isUser == ""){
+	if(isUser == null || isUser == "" || isUser == "null" || isUser == undefined || isUser == "undefined"){
 		console.log("im not logged ");
 		$window.location.href ="pages-login.html";
 	}

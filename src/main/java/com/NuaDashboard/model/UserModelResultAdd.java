@@ -6,6 +6,7 @@ public class UserModelResultAdd {
 	private String email;
 	private String numtel;
 	private String adress;
+	
 	public UserModelResultAdd() {
 		super();
 	}

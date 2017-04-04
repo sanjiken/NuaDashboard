@@ -19,23 +19,22 @@
 		<script src="bower_components/angular-material/angular-material.js"></script>
 		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="angular-beans.js"></script> 
-		
+		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
-		
+		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
 		
                                          
     </head>
-    <body ng-app="myModule" ng-controller="indexCtrl">
+    <body  ng-app="myModule" ng-controller="projetCtrl">
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
-            <div class="page-sidebar">
-                 <div class="page-sidebar">
+              <div class="page-sidebar">
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     
@@ -83,6 +82,9 @@
                     </li> 
                    
                    
+           
+                  
+                <!-- END X-NAVIGATION -->
             </div>
             <!-- END PAGE SIDEBAR -->
             
@@ -101,13 +103,15 @@
                         <form role="form">
                             <input type="text" name="search" placeholder="Search..."/>
                         </form>
-                    </li>   
+                    </li>  
+                
                     <!-- END SEARCH -->
                     <!-- SIGN OUT -->
                     <li class="xn-icon-button pull-right">
                         <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>                        
                     </li> 
                     <!-- END SIGN OUT -->
+                    
                     <!-- MESSAGES -->
                     <li class="xn-icon-button pull-right">
                         <a href="#"><span class="fa fa-comments"></span></a>
@@ -134,7 +138,7 @@
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <div class="list-group-status status-away"></div>
-                                    <img src="assets/images/users/user3.jpg" class="pull-left" alt="Nadia Ali"/>
+                                    <img src="assets/images/users/téléchargement.jpg" class="pull-left" alt="Nadia Ali"/>
                                     <span class="contacts-title">Nadia Ali</span>
                                     <p>Mauris vel eros ut nunc rhoncus cursus sed</p>
                                 </a>
@@ -150,6 +154,7 @@
                             </div>                            
                         </div>                        
                     </li>
+                    
                     <!-- END MESSAGES -->
                     <!-- TASKS -->
                     <li class="xn-icon-button pull-right">
@@ -200,100 +205,217 @@
                     <!-- END TASKS -->
                 </ul>
                 <!-- END X-NAVIGATION VERTICAL -->                     
-                
+
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li class="active">administration</li>
-                    <li class="active">gestion de client</li>
+                    <li><a href="#">Home</a></li>                    
+                    <li class="active">Dashboard</li>
+                    <li class="active">projet</li>
                 </ul>
-                <!-- END BREADCRUMB -->
-                
+                <!-- END BREADCRUMB -->  
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Nuage client</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Table project</h2>
                 </div>
-                <!-- END PAGE TITLE -->                
+                <!-- END PAGE TITLE -->                 
                 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                 
-                    <div class="row">
-                        
-                       
-                           
-
-                    <!-- START RESPONSIVE TABLES -->
+                    
+                    
                     <div class="row">
                         <div class="col-md-12">
+                            
+                            <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-default">
-
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">client list</h3>
+                                    <h3 class="panel-title">liste de project</h3>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='img/icons/json.png' width="24"/> JSON</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img src='img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'true'});"><img src='img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'xml',escape:'false'});"><img src='img/icons/xml.png' width="24"/> XML</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'sql'});"><img src='img/icons/sql.png' width="24"/> SQL</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'csv',escape:'false'});"><img src='img/icons/csv.png' width="24"/> CSV</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'txt',escape:'false'});"><img src='img/icons/txt.png' width="24"/> TXT</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'excel',escape:'false'});"><img src='img/icons/xls.png' width="24"/> XLS</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'doc',escape:'false'});"><img src='img/icons/word.png' width="24"/> Word</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'powerpoint',escape:'false'});"><img src='img/icons/ppt.png' width="24"/> PowerPoint</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'png',escape:'false'});"><img src='img/icons/png.png' width="24"/> PNG</a></li>
+                                            <li><a href="#" onClick ="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img src='img/icons/pdf.png' width="24"/> PDF</a></li>
+                                        </ul>
+                                    </div>                                    
+                                    
                                 </div>
-
-                                <div class="panel-body panel-body-table">
-
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-striped table-actions">
-                                            <thead>
-                                                <tr>
-                                                    <th width="50">id_client</th>
-                                                    <th>nom_client</th>
-                                                    <th width="100">status</th>
-                                                    <th width="100">amount</th>
-                                                    <th width="100">date_inscri</th>
-                                                    <th width="100">actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>                                            
-                                                <tr id="trow_1">
-                                                    <td class="text-center">1</td>
-                                                    <td><strong>John Doe</strong></td>
-                                                    <td><span class="label label-success">New</span></td>
-                                                    <td>$430.20</td>
-                                                    <td>24/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_2">
-                                                    <td class="text-center">2</td>
-                                                    <td><strong>Dmitry Ivaniuk</strong></td>
-                                                    <td><span class="label label-warning">Pending</span></td>
-                                                    <td>$1,351.00</td>
-                                                    <td>23/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_2');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_3">
-                                                    <td class="text-center">3</td>
-                                                    <td><strong>Nadia Ali</strong></td>
-                                                    <td><span class="label label-info">In Queue</span></td>
-                                                    <td>$2,621.00</td>
-                                                    <td>22/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_3');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>                                
-
+                                <div class="panel-body">
+                                    <table id="customers2" class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>projet Name</th>
+                                                <th>propriete</th>
+                                                <th>statue</th>
+                                                <th>idClient</th>
+                                                <th>idInterne</th>
+                                                <th>support</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody  ng-repeat="projet in searchProjetClient" ng-show="client">
+                                            <tr>
+                                                <td>{{projet.projetName}}</td>
+                                                <td>{{projet.propriete}}</td>
+                                                <td>{{projet.statue}}</td>
+                                                <td>{{projet.idClient}}</td>
+                                                <td>{{projet.idInterne}}</td>
+                                                <!--  <td> <a href=""+{{projet.support}}+".html">{{projet.support}}</a> </td>-->
+                                          
+                                            </tr>
+                                           
+                                        </tbody>
+                                         <tbody  ng-repeat="projet in searchProjetInterne" ng-show="interne">
+                                            <tr>
+                                                <td>{{projet.projetName}}</td>
+                                                <td>{{projet.propriete}}</td>
+                                                <td>{{projet.statue}}</td>
+                                                <td>{{projet.idClient}}</td>
+                                                <td>{{projet.idInterne}}</td>
+                                                 <!--  <td> <a href=""+{{projet.support}}+".html">{{projet.support}}</a> </td>-->
+                                          
+                                            </tr>
+                                           
+                                        </tbody>
+                                         <tbody  ng-repeat="projet in searchProjetAdmin" ng-show="superUser">
+                                            <tr>
+                                                <td>{{projet.projetName}}</td>
+                                                <td>{{projet.propriete}}</td>
+                                                <td>{{projet.statue}}</td>
+                                                <td>{{projet.idClient}}</td>
+                                                <td>{{projet.idInterne}}</td>
+                                                  <!--  <td> <a href=""+{{projet.support}}+".html">{{projet.support}}</a> </td>-->
+                                          
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>                                    
+                                    
+                               <div ng-show="superUser">
+                                 <div class="panel-heading">
+                                    <h3 class="panel-title">ajouter un nouveau projet</h3>
+                                  </div><h5> remplir ce formulaire s'il vous plait</h5>
+                                </div>     
+                                
+                                <div>
+           						
+                                <div  >
+                                 <form  class="form-horizontal" >
+                    				 <div class="form-group">
+                       					 <div class="col-md-5">
+                        				    <input type="text" class="form-control" placeholder="projetName" ng-model="vm.angularbeanProjet.projet.projetName" />
+                    				    </div>
+                   					 </div>
+                    				 <div class="form-group">
+                      					  <div class="col-md-5">
+                        				    <input type="text" class="form-control" placeholder="propriete" ng-model="vm.angularbeanProjet.projet.propriete"/>
+                        				</div>
+                   					 </div>
+                      				
+                  					   <div class="form-group">
+                  					   
+                       						 <div class="col-md-5">
+                        					    <input type="text" class="form-control" placeholder="support" ng-model="vm.angularbeanProjet.projet.support"/>
+                       						 </div>
+                   						 </div>
+                   						 
+                   					 <div class="form-group">
+                      					   <div class="col-md-5">
+                      					  	 <select ng-model="vm.angularbeanProjet.projet.idClient">
+                      					  	 <option checked>choix client</option>
+                      					 	  <option value="id" ng-repeat="client in findClient">{{client.userName}}</option>
+                      					  	 </select >
+                     					  
+                 				
+                      					  <select ng-model="vm.angularbeanProjet.projet.idInterne">
+                      					  	 <option >choix interne</option>
+                      					 	  <option value="id" ng-repeat="interne in findIntern">{{interne.userName}}</option>
+                      					  	 </select >
+                     					   </div>
+                   					 </div>
+                   					 </div><br>
+                    
+                   
+                   						 <div class="form-group">
+                      						  <div class="col-md-2">
+                           						 <button class="btn btn-info btn-block" ng-click="addProjetCtrlJs(vm.angularbeanProjet.projet)" >ajouter</button>
+                     						   </div>
+               						     </div>
+                                            
+                                
+                    
+                                      </form><br>
+                                		  <div> <b>{{response}}</b></div>
+                                
                                 </div>
-                            </div>                                                
+                           
+                                </div>
+                                
+                            </div>
+                            </div>
+                            <!-- END DATATABLE EXPORT -->                            
+                            
+                            <!-- START DEFAULT TABLE EXPORT -->
+                            <div class="panel panel-default">
+                                
+                                <div class="panel-body" id="exportTable" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="list-group border-bottom">
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'json',escape:'false'});"><img src='img/icons/json.png' width="24"/> JSON</a>
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img src='img/icons/json.png' width="24"/> JSON (ignoreColumn)</a>
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'json',escape:'true'});"><img src='img/icons/json.png' width="24"/> JSON (with Escape)</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="list-group border-bottom">
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'xml',escape:'false'});"><img src='img/icons/xml.png' width="24"/> XML</a>
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'sql'});"><img src='img/icons/sql.png' width="24"/> SQL</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="list-group border-bottom">
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'csv',escape:'false'});"><img src='img/icons/csv.png' width="24"/> CSV</a>
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'txt',escape:'false'});"><img src='img/icons/txt.png' width="24"/> TXT</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="list-group border-bottom">
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'excel',escape:'false'});"><img src='img/icons/xls.png' width="24"/> XLS</a>
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'doc',escape:'false'});"><img src='img/icons/word.png' width="24"/> Word</a>
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'powerpoint',escape:'false'});"><img src='img/icons/ppt.png' width="24"/> PowerPoint</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="list-group border-bottom">
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'png',escape:'false'});"><img src='img/icons/png.png' width="24"/> PNG</a>
+                                                <a href="#" class="list-group-item" onClick ="$('#customers').tableExport({type:'pdf',escape:'false'});"><img src='img/icons/pdf.png' width="24"/> PDF</a>
+                                            </div>
+                                        </div>
+                                    </div>                               
+                                </div>
+                            
+                            </div>
+                            <!-- END DEFAULT TABLE EXPORT -->
 
                         </div>
                     </div>
-                    <!-- END RESPONSIVE TABLES -->
-                    
-                <!-- END PAGE CONTENT WRAPPER -->                                    
+
                 </div>         
+                <!-- END PAGE CONTENT WRAPPER -->
             </div>            
             <!-- END PAGE CONTENT -->
         </div>
@@ -355,11 +477,17 @@
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         
-        <script type="text/javascript" src="js/demo_tables.js"></script>     
+        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="js/plugins/tableexport/tableExport.js"></script>
+	<script type="text/javascript" src="js/plugins/tableexport/jquery.base64.js"></script>
+	<script type="text/javascript" src="js/plugins/tableexport/html2canvas.js"></script>
+	<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+	<script type="text/javascript" src="js/plugins/tableexport/jspdf/jspdf.js"></script>
+	<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/base64.js"></script>        
         <!-- END THIS PAGE PLUGINS-->  
         
         <!-- START TEMPLATE -->
-        <script type="text/javascript" src="js/settings.js"></script>
+        
         
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
