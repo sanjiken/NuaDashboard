@@ -75,5 +75,3 @@ var role = $cookies.get('role');
      
      } 
 }
-	
-	

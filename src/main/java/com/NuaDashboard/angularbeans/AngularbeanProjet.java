@@ -69,5 +69,4 @@ public class AngularbeanProjet {
 	public List<UserModelResultAdd> getInternTT( ){
 		return projetEntityService.searchInternTTService();
 	}
-	
 }
