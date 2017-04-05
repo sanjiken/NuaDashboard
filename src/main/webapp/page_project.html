@@ -19,6 +19,7 @@
 		<script src="bower_components/angular-material/angular-material.js"></script>
 		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="angular-beans.js"></script> 
+		<script type="text/javascript" src="js/controllers/controllerGestInterne.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
@@ -335,14 +336,14 @@
                    					 <div class="form-group">
                       					   <div class="col-md-5">
                       					  	 <select ng-model="vm.angularbeanProjet.projet.idClient">
-                      					  	 <option checked>choix client</option>
-                      					 	  <option value="id" ng-repeat="client in findClient">{{client.userName}}</option>
+                      					  	 
+                      					 	  <option value="{{client.id}}" ng-repeat="client in findClient">{{client.userName}}</option>
                       					  	 </select >
                      					  
                  				
                       					  <select ng-model="vm.angularbeanProjet.projet.idInterne">
                       					  	 <option >choix interne</option>
-                      					 	  <option value="id" ng-repeat="interne in findIntern">{{interne.userName}}</option>
+                      					 	  <option value="{{interne.id}}" ng-repeat="interne in findIntern">{{interne.userName}}</option>
                       					  	 </select >
                      					   </div>
                    					 </div>

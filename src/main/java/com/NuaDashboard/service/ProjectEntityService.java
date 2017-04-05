@@ -3,6 +3,8 @@ package com.NuaDashboard.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -12,7 +14,12 @@ import com.NuaDashboard.entity.UserEntity;
 import com.NuaDashboard.model.ProjetModelRequest;
 import com.NuaDashboard.model.ProjetModelResult;
 import com.NuaDashboard.model.UserModelResultAdd;
+import com.NuaDashboard.model.modelInterneResult;
 
+
+
+@LocalBean
+@Stateless
 public class ProjectEntityService {
 
 	
@@ -118,16 +125,12 @@ public  String addProjetService(ProjetModelRequest projetRequest){
 	/*
 	 * get client
 	 */
-	Query query = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultAdd("
-			+"u.id ,      "
-			+"u.userName, "
-			+"u.email,"
-			+"u.numtel,"
-			+"u.adress )"
+	
+	Query query = em.createQuery(" SELECT u "
 		   + " FROM UserEntity u   "
 		   + " WHERE u.id = :p1 "
 		   + "AND u.isDeleted = :p2  ")
-		.setParameter("p1",projetRequest.getIdClient())
+		.setParameter("p1",Integer.parseInt(projetRequest.getIdClient()))
 		.setParameter("p2", false);
 
 	UserEntity client= (UserEntity) query.getSingleResult();
@@ -135,17 +138,12 @@ public  String addProjetService(ProjetModelRequest projetRequest){
 	/*
 	 * get Intern
 	 */
-
-Query q = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultAdd(  "
-		+"u.id ,      "
-		+"u.userName, "
-		+"u.email,"
-		+"u.numtel,"
-		+"u.adress )"
+	//System.out.println("ProjectEntityService.addProjetService()"+ projetRequest.getIdInterne());
+Query q = em.createQuery(" SELECT u "
 	   + " FROM UserEntity u   "
 	   + " WHERE u.id = :p1 "
 	   + "AND u.isDeleted = :p2  ")
-	.setParameter("p1",projetRequest.getIdInterne())
+	.setParameter("p1", Integer.parseInt(projetRequest.getIdInterne()))
 	.setParameter("p2", false);
 
 UserEntity interne = (UserEntity) q.getSingleResult();
@@ -187,11 +185,11 @@ UserEntity interne = (UserEntity) q.getSingleResult();
 
 
 
-public  List<UserModelResultAdd> searchClientTTService(){
+public  List<modelInterneResult> searchClientTTService(){
 	
 		try {
 			
-			Query query = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultAdd(  "
+			Query query = em.createQuery(" SELECT new com.NuaDashboard.model.modelInterneResult(  "
 						+"u.id ,      "
 						+"u.userName, "
 						+"u.email,     "
@@ -203,7 +201,7 @@ public  List<UserModelResultAdd> searchClientTTService(){
 					.setParameter("p1",2)
 					.setParameter("p2", false);
 			
-			List<UserModelResultAdd> user = (List<UserModelResultAdd>) query.getResultList();
+			List<modelInterneResult> user = (List<modelInterneResult>) query.getResultList();
 			
 			
 			
@@ -219,11 +217,11 @@ public  List<UserModelResultAdd> searchClientTTService(){
 
 
 
-public  List<UserModelResultAdd> searchInternTTService(){
+public  List<modelInterneResult> searchInternTTService(){
 	
 		try {
 			
-			Query query = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultAdd(  "
+			Query query = em.createQuery(" SELECT new com.NuaDashboard.model.modelInterneResult(  "
 						+"u.id ,      "
 						+"u.userName, "
 						+"u.email,"
@@ -235,7 +233,7 @@ public  List<UserModelResultAdd> searchInternTTService(){
 					.setParameter("p1",3)
 					.setParameter("p2", false);
 			
-			List<UserModelResultAdd> user = (List<UserModelResultAdd>) query.getResultList();
+			List<modelInterneResult> user = (List<modelInterneResult>) query.getResultList();
 			
 			
 			

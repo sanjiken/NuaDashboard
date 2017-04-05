@@ -59,10 +59,6 @@ var role = $cookies.get('role');
  			$scope.response = "Vous n'avez spécifiez votre projet Name "
  		}else if(data.propriete == null || data.propriete == undefined || data.propriete  == ""){
  			$scope.response = "Vous n'avez spécifiez votre propriete "
- 	    }else if(data.idClient == null || data.idClient == undefined || data.idClient  == ""){
-            $scope.response = "Vous n'avez spécifiez votre idClient"
- 		}else if(data.idInterne == null || data.idInterne == undefined || data.idInterne  == ""){
-            $scope.response = "Vous n'avez spécifiez votre idInterne"
  		}else {
  			
  			vm.angularbeanProjet.addProjetBean(data).then(function(msgProjetAdd){
