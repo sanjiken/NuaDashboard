@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import com.NuaDashboard.model.ProjetModelRequest;
 import com.NuaDashboard.model.ProjetModelResult;
-import com.NuaDashboard.model.UserModelRequestAdd;
 import com.NuaDashboard.model.UserModelResultAdd;
+import com.NuaDashboard.model.modelInterneResult;
 import com.NuaDashboard.service.ProjectEntityService;
 
 import angularBeans.api.AngularBean;
@@ -59,14 +59,14 @@ public class AngularbeanProjet {
 	
 	@Get
 	@NGReturn(model = "clientTT")
-	public List<UserModelResultAdd> getClientTT( ){
+	public List<modelInterneResult> getClientTT( ){
 		return projetEntityService.searchClientTTService();
 	}
 	
 	
 	@Get
 	@NGReturn(model = "internTT")
-	public List<UserModelResultAdd> getInternTT( ){
+	public List<modelInterneResult> getInternTT( ){
 		return projetEntityService.searchInternTTService();
 	}
 }

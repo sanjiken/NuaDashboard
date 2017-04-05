@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)http://localhost:8090/NuaDashboard/gestion_interns.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>        
+<html lang="en" ng-app="myModule"  ng-controller="InternCtrl as vm" >
+    <head>        
         <!-- META SECTION -->
         <title>Nuage Dashboard</title>            
         
@@ -13,22 +13,19 @@
         <!-- CSS INCLUDE -->        
         <link rel="stylesheet" type="text/css" id="theme" href="./Nuage Dashboard_files/theme-black.css">
         <!-- EOF CSS INCLUDE -->   
-        <script type="text/javascript" src="./Nuage Dashboard_files/angular.js.tÃ©lÃ©chargement"></script>
-		<script src="./Nuage Dashboard_files/angular-aria.js.tÃ©lÃ©chargement"></script>
-		<script src="./Nuage Dashboard_files/angular-animate.js.tÃ©lÃ©chargement"></script>
-		<script src="./Nuage Dashboard_files/angular-material.js.tÃ©lÃ©chargement"></script>
-		<script src="./Nuage Dashboard_files/angular-cookies.min.js.tÃ©lÃ©chargement"></script>
-		<script type="text/javascript" src="./Nuage Dashboard_files/angular-beans.js.tÃ©lÃ©chargement"></script> 
-		<script type="text/javascript" src="./Nuage Dashboard_files/controllerGestInterne.js.tÃ©lÃ©chargement"></script>
-		<script type="text/javascript" src="./Nuage Dashboard_files/controllerInsc.js.tÃ©lÃ©chargement"></script>
-		<script type="text/javascript" src="./Nuage Dashboard_files/controllerCnx.js.tÃ©lÃ©chargement"></script>
-		<script type="text/javascript" src="./Nuage Dashboard_files/controllerProjet.js.tÃ©lÃ©chargement"></script>
-		<script type="text/javascript" src="./Nuage Dashboard_files/ControllerIndex.js.tÃ©lÃ©chargement"></script>
-		<script type="text/javascript" src="./Nuage Dashboard_files/controllerprofil.js.tÃ©lÃ©chargement"></script>
-		<script type="text/javascript" src="./Nuage Dashboard_files/module.js.tÃ©lÃ©chargement"></script>
-		
-		
-                                         
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-aria/angular-aria.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+		<script src="bower_components/angular-material/angular-material.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+		<script type="text/javascript" src="angular-beans.js"></script> 
+		<script type="text/javascript" src="js/controllers/controllerGestInterne.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
+		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/module.js"></script>
     </head>
     <body>
         <!-- START PAGE CONTAINER -->
@@ -136,7 +133,7 @@
                                 </a>
                                 <a href="http://localhost:8090/NuaDashboard/gestion_interns.html#" class="list-group-item">
                                     <div class="list-group-status status-away"></div>
-                                    <img src="./Nuage Dashboard_files/tÃ©lÃ©chargement.jpg" class="pull-left" alt="Nadia Ali">
+                                    <img src="./Nuage Dashboard_files/téléchargement.jpg" class="pull-left" alt="Nadia Ali">
                                     <span class="contacts-title">Nadia Ali</span>
                                     <p>Mauris vel eros ut nunc rhoncus cursus sed</p>
                                 </a>
@@ -213,7 +210,7 @@
                 <!-- END BREADCRUMB -->  
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Table project</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Table intern</h2>
                 </div>
                 <!-- END PAGE TITLE -->                 
                 
@@ -255,11 +252,22 @@
                                 <div class="panel-body">
                                     <div id="customers2_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="customers2_length"><label>Show <select name="customers2_length" aria-controls="customers2" class="form-control"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="customers2_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control " placeholder="" aria-controls="customers2"></label></div><table id="customers2" class="table datatable dataTable no-footer" role="grid" aria-describedby="customers2_info">
                                         <thead>
-                                            <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="customers2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="nom_intern: activate to sort column ascending" style="width: 255px;">nom_intern</th><th class="sorting" tabindex="0" aria-controls="customers2" rowspan="1" colspan="1" aria-label="email_intern: activate to sort column ascending" style="width: 196px;">email_intern</th><th class="sorting" tabindex="0" aria-controls="customers2" rowspan="1" colspan="1" aria-label="numtel_intern: activate to sort column ascending" style="width: 218px;">numtel_intern</th><th class="sorting" tabindex="0" aria-controls="customers2" rowspan="1" colspan="1" aria-label="adress_intern: activate to sort column ascending" style="width: 212px;">adress_intern</th><th class="sorting" tabindex="0" aria-controls="customers2" rowspan="1" colspan="1" aria-label="action: activate to sort column ascending" style="width: 118px;">action</th></tr>
+                                            <tr>
+                                                <th>nom_intern</th>
+                                                <th>email_intern</th>
+                                                <th>numtel_intern</th>
+                                                <th>adress_intern</th>
+                                                <th>action</th>
+                                            </tr>
                                         </thead>
                                         <tbody ng-repeat="intern in internTT">
-                                            
-                                          
+                                            <tr>
+                                                <td>{{intern.userName}}</td>
+                                                <td>{{intern.email}}</td>
+                                                <td>{{intern.numtel}}</td>
+                                                <td>{{intern.adress}}</td>
+                                                <td> <button ng-click="suppInternJs(intern.id)">supp</button><br>{{suppIntern}} </td>
+                                            </tr>
                                         <tr role="row" class="odd">
                                                 <td class="sorting_1">{{intern.userName}}</td>
                                                 <td>{{intern.email}}</td>
@@ -268,7 +276,8 @@
                                                 <td> <button ng-click="suppInternJs(intern.id)">supp</button> </td>
                                             </tr></tbody>
                                     </table><div class="dataTables_info" id="customers2_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div><div class="dataTables_paginate paging_simple_numbers" id="customers2_paginate"><a class="paginate_button previous disabled" aria-controls="customers2" data-dt-idx="0" tabindex="0" id="customers2_previous">Previous</a><span><a class="paginate_button current" aria-controls="customers2" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="customers2" data-dt-idx="2" tabindex="0" id="customers2_next">Next</a></div></div>                                    
-                                    
+                                        </tbody>
+                                    </table>                                    
                                 </div>
                             </div>
                             <!-- END DATATABLE EXPORT -->                            
@@ -373,29 +382,29 @@
 
     <!-- START SCRIPTS -->
         <!-- START PLUGINS -->
-        <script type="text/javascript" src="./Nuage Dashboard_files/jquery.min.js.tÃ©lÃ©chargement"></script>
-        <script type="text/javascript" src="./Nuage Dashboard_files/jquery-ui.min.js.tÃ©lÃ©chargement"></script>
-        <script type="text/javascript" src="./Nuage Dashboard_files/bootstrap.min.js.tÃ©lÃ©chargement"></script>        
+        <script type="text/javascript" src="./Nuage Dashboard_files/jquery.min.js.téléchargement"></script>
+        <script type="text/javascript" src="./Nuage Dashboard_files/jquery-ui.min.js.téléchargement"></script>
+        <script type="text/javascript" src="./Nuage Dashboard_files/bootstrap.min.js.téléchargement"></script>        
         <!-- END PLUGINS -->
         
         <!-- START THIS PAGE PLUGINS-->        
-        <script type="text/javascript" src="./Nuage Dashboard_files/icheck.min.js.tÃ©lÃ©chargement"></script>
-        <script type="text/javascript" src="./Nuage Dashboard_files/jquery.mCustomScrollbar.min.js.tÃ©lÃ©chargement"></script>
+        <script type="text/javascript" src="./Nuage Dashboard_files/icheck.min.js.téléchargement"></script>
+        <script type="text/javascript" src="./Nuage Dashboard_files/jquery.mCustomScrollbar.min.js.téléchargement"></script>
         
-        <script type="text/javascript" src="./Nuage Dashboard_files/jquery.dataTables.min.js.tÃ©lÃ©chargement"></script>
-        <script type="text/javascript" src="./Nuage Dashboard_files/tableExport.js.tÃ©lÃ©chargement"></script>
-	<script type="text/javascript" src="./Nuage Dashboard_files/jquery.base64.js.tÃ©lÃ©chargement"></script>
-	<script type="text/javascript" src="./Nuage Dashboard_files/html2canvas.js.tÃ©lÃ©chargement"></script>
-	<script type="text/javascript" src="./Nuage Dashboard_files/sprintf.js.tÃ©lÃ©chargement"></script>
-	<script type="text/javascript" src="./Nuage Dashboard_files/jspdf.js.tÃ©lÃ©chargement"></script>
-	<script type="text/javascript" src="./Nuage Dashboard_files/base64.js.tÃ©lÃ©chargement"></script>        
+        <script type="text/javascript" src="./Nuage Dashboard_files/jquery.dataTables.min.js.téléchargement"></script>
+        <script type="text/javascript" src="./Nuage Dashboard_files/tableExport.js.téléchargement"></script>
+	<script type="text/javascript" src="./Nuage Dashboard_files/jquery.base64.js.téléchargement"></script>
+	<script type="text/javascript" src="./Nuage Dashboard_files/html2canvas.js.téléchargement"></script>
+	<script type="text/javascript" src="./Nuage Dashboard_files/sprintf.js.téléchargement"></script>
+	<script type="text/javascript" src="./Nuage Dashboard_files/jspdf.js.téléchargement"></script>
+	<script type="text/javascript" src="./Nuage Dashboard_files/base64.js.téléchargement"></script>        
         <!-- END THIS PAGE PLUGINS-->  
         
         <!-- START TEMPLATE -->
         
         
-        <script type="text/javascript" src="./Nuage Dashboard_files/plugins.js.tÃ©lÃ©chargement"></script>        
-        <script type="text/javascript" src="./Nuage Dashboard_files/actions.js.tÃ©lÃ©chargement"></script>        
+        <script type="text/javascript" src="./Nuage Dashboard_files/plugins.js.téléchargement"></script>        
+        <script type="text/javascript" src="./Nuage Dashboard_files/actions.js.téléchargement"></script>        
         <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->                 
     

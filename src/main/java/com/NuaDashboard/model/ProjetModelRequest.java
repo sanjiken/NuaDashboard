@@ -7,13 +7,13 @@ public class ProjetModelRequest {
 	private String projetName;
 	private String propriete;
 	private String support;
-	private Integer idClient;
-	private Integer idInterne;
+	private String idClient;
+	private String idInterne;
 	public ProjetModelRequest() {
 		super();
 	}
-	public ProjetModelRequest(String projetName, String propriete, String support, Integer idClient,
-			Integer idInterne) {
+	public ProjetModelRequest(String projetName, String propriete, String support, String idClient,
+			String idInterne) {
 		super();
 		this.projetName = projetName;
 		this.propriete = propriete;
@@ -60,28 +60,29 @@ public class ProjetModelRequest {
 	/**
 	 * @return the idClient
 	 */
-	public Integer getIdClient() {
+	public String getIdClient() {
 		return idClient;
 	}
 	/**
 	 * @param idClient the idClient to set
 	 */
-	public void setIdClient(Integer idClient) {
+	public void setIdClient(String idClient) {
 		this.idClient = idClient;
 	}
 	/**
 	 * @return the idInterne
 	 */
-	public Integer getIdInterne() {
+	public String getIdInterne() {
 		return idInterne;
 	}
 	/**
 	 * @param idInterne the idInterne to set
 	 */
-	public void setIdInterne(Integer idInterne) {
+	public void setIdInterne(String idInterne) {
 		this.idInterne = idInterne;
 	}
 	
 	
 	
 }
+
