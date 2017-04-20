@@ -24,10 +24,11 @@
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
-		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerProfil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerGestionClt.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
-		
+	
                                          
     </head>
     <body  ng-app="myModule" ng-controller="projetCtrl">
@@ -342,7 +343,7 @@
                      					  
                  				
                       					  <select ng-model="vm.angularbeanProjet.projet.idInterne">
-                      					  	 <option >choix interne</option>
+                      					  	 
                       					 	  <option value="{{interne.id}}" ng-repeat="interne in findIntern">{{interne.userName}}</option>
                       					  	 </select >
                      					   </div>

@@ -8,7 +8,9 @@ import com.NuaDashboard.model.ProjetModelRequest;
 import com.NuaDashboard.model.ProjetModelResult;
 import com.NuaDashboard.model.UserModelRequestAdd;
 import com.NuaDashboard.model.UserModelResultAdd;
+import com.NuaDashboard.service.ClientEntityService;
 import com.NuaDashboard.service.ProjectEntityService;
+import com.NuaDashboard.entity.UserEntity;
 import com.NuaDashboard.model.ClientModelRequest;
 import com.NuaDashboard.model.ClientModelResult;
 
@@ -25,26 +27,31 @@ public class AngularbeanClient {
 	ModelQuery modelQuery;
 
 	@Inject
-	clientEntityService clientEntityService;	
+	ClientEntityService clientEntityService;	
 	
 	@NGPostConstruct
-	public void init() {
-		modelQuery.setProperty("client", new ClientModelRequest());
-		          
-	}
-	
-	@Get
-	@NGReturn(model = "searchClient")
-	public  List<ClientModelResult>  searchbeanClient(ClientModelRequest clientRequest  ){
-		return clientEntityService.searchClientService(clientRequest);
-	}
-	
-	@Get
-	@NGReturn(model = "msgClientDelet")
-	public String deletclientBean() {
 
-		return clientEntityService.deletclientService();
+		          
+	
+	@Get
+	@NGReturn(model="searchClient")
+	public List<UserEntity> searchbeanClient(){
+		
+		return clientEntityService.searchClient();
 	}
 	
+	@Get
+	@NGReturn(model="activeMsg")
+	public String string(String idClient){
+		
+		return clientEntityService.activateClient(idClient);
+	}
 	
+	@Get
+	@NGReturn(model="deletMsg")
+	public String deleteClient(String idClient){
+
+		return clientEntityService.deleteClient(idClient);
+	}
+}
 	
