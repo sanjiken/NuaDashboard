@@ -70,4 +70,12 @@ public class AngularbeanProjet {
 		return projetEntityService.searchInternTTService();
 	}
 	
+	@Get
+	@NGReturn(model = "msgProjetedit")
+	public String editprojetJsBean(ProjetModelRequest ProjetModelRequest,Integer idProjet) {
+
+		return projetEntityService.editProjetService(ProjetModelRequest,idProjet);
+	}
+	
+	
 }

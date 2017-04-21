@@ -5,6 +5,9 @@ function projetCtrl(angularbeanProjet,$scope,$cookies,$window) {
 		console.log("im not logged ");
 		$window.location.href ="pages-login.html";
 	}
+	var isSA=$cookies.get('isSA');
+	$scope.supAD=isSA;
+	
 	var vm=this;
 	vm.angularbeanProjet=angularbeanProjet;
 	
@@ -19,7 +22,8 @@ var role = $cookies.get('role');
     	 console.log("i am : " + role)
     		 vm.angularbeanProjet.searchbeanProjetAdmin($cookies.get('id')).then(function (searchProjetAdmin){
     			 $scope.searchProjetAdmin = searchProjetAdmin;
-    			 console.log(searchProjetAdmin);
+    			 console.log("liste de projet pour admin :");
+    			 console.dir(searchProjetAdmin);
     			 $scope.superUser= true;
 		
     		     });
@@ -27,16 +31,17 @@ var role = $cookies.get('role');
     	 console.log("i am : " + role)
  		 vm.angularbeanProjet.searchbeanProjetClient($cookies.get('id')).then(function (searchProjetClient){
  			 $scope.searchProjetClient = searchProjetClient;
-		
- 			 	console.dir($scope.searchProjetClient);
+ 			console.log("liste de projet pour client :");
+ 			 	console.dir(searchProjetClient);
  			 	$scope.client=true;
  		 });
       }else{
     	  console.log("i am : " + role)
     	  vm.angularbeanProjet.searchbeanProjetInterne($cookies.get('id')).then(function (searchProjetInterne){
   			 $scope.searchProjetInterne = searchProjetInterne;
- 		
-  			 	console.log("im in projet cotroller in searchbeanProjet pour interne");
+  			console.log("liste de projet pour interne :");
+  			console.dir(searchProjetInterne);
+  			
   			 	$scope.interne=true;
   		 });  
 	  
@@ -45,15 +50,23 @@ var role = $cookies.get('role');
       * to choose Intern and client
       */
  		vm.angularbeanProjet.getClientTT().then(function(clientTT) {
+ 			console.log("tt le client");
  			console.dir(clientTT);
  			$scope.findClient = clientTT;
  		});	
  		vm.angularbeanProjet.getInternTT().then(function(internTT) {
+ 			console.log("tt le interne");
  			console.dir(internTT);
  			$scope.findIntern = internTT;
  		});	
   
+ 		 $scope.newe =false;
+ 		 $scope.newprojetJs = function(){
+ 			$scope.newe=true; 
+ 			 
+ 		 }
      $scope.addProjetCtrlJs = function(data){
+    	 console.log("info de projet a ajouter");
     	 console.log(data);
     	 if(data.projetName == null || data.projetName == undefined || data.projetName  == ""){
  			$scope.response = "Vous n'avez spécifiez votre projet Name "
@@ -70,6 +83,42 @@ var role = $cookies.get('role');
  		}
      
      } 
+     
+    $scope.edit=false;
+    $scope.projetedit = {};
+     $scope.editprojetJs = function(data){
+    	 console.log("info projet pas encore modifier");
+    	 console.dir(data);
+    	 $scope.idprojetedit=data;
+    	
+    		  $scope.edit=true;	
+    		  $scope.projetedit.projetName=data.projetName;
+    		  $scope.projetedit.propriete=data.propriete;
+    		  $scope.projetedit.support=data.support;
+    		  $scope.projetedit.idClient=data.idClient;
+    		  $scope.projetedit.idInterne=data.idInterne;
+    		  console.log("data.idClient : " + data.idClient);
+    		  console.log("$scope.projetedit.idClient : " + $scope.projetedit.idClient);
+    		  
+    		  console.log("data.idInterne: " + data.idInterne);
+    		  console.log("$scope.projetedit.idInterne : " +  $scope.projetedit.idInterne);
+    		  
+    		  
+    	
+    	 }
+    	 
+    
+    $scope.editProjetCtrlJs=function(data){
+    	 console.log("info projet a  modifier");
+    	 console.dir(data);
+    	vm.angularbeanProjet.editprojetJsBean(data,$scope.idprojetedit.id).then(function(msgProjetedit){ 
+    		$scope.editprojet=msgProjetedit;
+    		console.log("im in edit projet");
+    		$scope.editprojet= " "+msgProjetedit;
+    		
+    		
+    	});
+    }
+
+	
 }
-	
-	

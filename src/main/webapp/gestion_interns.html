@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myModule"  ng-controller="InternCtrl as vm" >
+<html lang="en" >
     <head>        
         <!-- META SECTION -->
         <title>Nuage Dashboard</title>            
@@ -25,12 +25,13 @@
 		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerMsg.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
 		
                                          
     </head>
-    <body >
+    <body ng-app="myModule"  ng-controller="InternCtrl as vm" >
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
             
@@ -210,6 +211,37 @@
                     <li class="active">Dashboard</li>
                     <li class="active">projet</li>
                 </ul>
+                <div class="col-md-5" >
+                     <div class="alert alert-success"role="alert"  ng-show="alertEdit">
+                                 <button class="close" data-dismiss="alert">
+                                 <span aria-hidden="true">×</span>
+                                 <span class="sr-only">Close</span>
+                                 </button>
+                                 <strong>!!!! interne sera client:</strong>
+                                   {{editInt}}
+                              </div>
+                      <div class="alert alert-success"role="alert"  ng-show="alertEror">
+                                 <button class="close" data-dismiss="alert">
+                                 <span aria-hidden="true">×</span>
+                                 <span class="sr-only">Close</span>
+                                 </button>
+                                 <strong>!!!!supprimer interne</strong>
+                                   {{suppIntern}}
+                              </div>
+                     
+                      <div class="alert alert-success"role="alert"  ng-show="alertDesact">
+                                 <button class="close" data-dismiss="alert">
+                                 <span aria-hidden="true">×</span>
+                                 <span class="sr-only">Close</span>
+                                 </button>
+                                 <strong>!!!desactive interne</strong>
+                                   {{desact}}
+                              </div>
+                              
+                    
+                     
+                  </div> 
+                  
                 <!-- END BREADCRUMB -->  
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
@@ -252,7 +284,9 @@
                                     </div>                                    
                                     
                                 </div>
+                               
                                 <div class="panel-body">
+                                
                                     <table id="customers2" class="table datatable">
                                         <thead>
                                             <tr>
@@ -264,15 +298,15 @@
                                               
                                             </tr>
                                         </thead>
-                                        <tbody ng-repeat="intern in internTT">
+                                        <tbody ng-repeat="intern in findIntern">
                                             <tr>
                                                 <td>{{intern.userName}}</td>
                                                 <td>{{intern.email}}</td>
                                                 <td>{{intern.numtel}}</td>
                                                 <td>{{intern.adress}}</td>
-                                                <td> <button ng-click="suppInternJs(intern.id)">supp</button><br>{{suppIntern}} </td>
+                                                <td><button ng-click="desactiveInternJs(intern.id)" class="btn btn-info btn-rounded" >desactiver</button> <button ng-click="editInternJs(intern.id)" class="btn btn btn-info">edit</button><button ng-click="suppInternJs(intern.id)" class="btn btn-danger">delete</button></td> 
                                             </tr>
-                                          
+
                                         </tbody>
                                     </table>                                    
                                     

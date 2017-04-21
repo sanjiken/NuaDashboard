@@ -9,12 +9,12 @@ public class UserModelResultCnx {
 	private String numtel;
     private String adress;
     private String role;
-    
+    private Boolean isSA;
 	public UserModelResultCnx() {
 		super();
 	}
 	public UserModelResultCnx(Integer id, String userName, Boolean isActivate, Boolean isDeleted, String email,
-			String numtel, String adress, String role) {
+			String numtel, String adress, String role, Boolean isSA) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -24,6 +24,7 @@ public class UserModelResultCnx {
 		this.numtel = numtel;
 		this.adress = adress;
 		this.role = role;
+		this.isSA = isSA;
 	}
 	/**
 	 * @return the id
@@ -121,7 +122,19 @@ public class UserModelResultCnx {
 	public void setRole(String role) {
 		this.role = role;
 	}
-    
+	/**
+	 * @return the isSA
+	 */
+	public Boolean getIsSA() {
+		return isSA;
+	}
+	/**
+	 * @param isSA the isSA to set
+	 */
+	public void setIsSA(Boolean isSA) {
+		this.isSA = isSA;
+	}
+	
 	
 		 
 }

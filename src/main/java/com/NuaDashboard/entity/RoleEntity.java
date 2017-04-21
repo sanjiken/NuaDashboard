@@ -25,8 +25,7 @@ public class RoleEntity {
 	@Column(name = "DISCRIPTION")
 	private String discription;
 
-	@Column(name = "IS_SA")
-	private Boolean  isSA;
+	
 
 	
 
@@ -72,19 +71,6 @@ public class RoleEntity {
 		this.discription = discription;
 	}
 
-	/**
-	 * @return the isSA
-	 */
-	public Boolean getIsSA() {
-		return isSA;
-	}
-
-	/**
-	 * @param isSA the isSA to set
-	 */
-	public void setIsSA(Boolean isSA) {
-		this.isSA = isSA;
-	}
 
 	
 

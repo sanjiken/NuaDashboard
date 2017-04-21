@@ -48,6 +48,9 @@ public class UserEntity implements Serializable {
 	@JoinColumn(name ="ID_ROLE")
 	@ManyToOne
 	private RoleEntity idRole;
+	
+	@Column(name = "IS_SA")
+	private Boolean  isSA;
 
 	/**
 	 * @return the id
@@ -152,6 +155,20 @@ public class UserEntity implements Serializable {
 	 */
 	public String getAdress() {
 		return adress;
+	}
+
+	/**
+	 * @return the isSA
+	 */
+	public Boolean getIsSA() {
+		return isSA;
+	}
+
+	/**
+	 * @param isSA the isSA to set
+	 */
+	public void setIsSA(Boolean isSA) {
+		this.isSA = isSA;
 	}
 
 	/**
