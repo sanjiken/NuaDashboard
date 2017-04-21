@@ -20,12 +20,16 @@
 		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="angular-beans.js"></script> 
 		<script type="text/javascript" src="js/controllers/controllerGestInterne.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerProfil.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerGestionClt.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerMsg.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerGesClt.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
 		
@@ -84,6 +88,9 @@
                     </li> 
                    
                    
+           
+                  
+                <!-- END X-NAVIGATION -->
             </div>
             <!-- END PAGE SIDEBAR -->
             
@@ -205,12 +212,28 @@
                 </ul>
                 <!-- END X-NAVIGATION VERTICAL -->                     
 
-                <!-- START BREADCRUMB -->
+             <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>                    
+                    <li><a href="http://localhost:8090/NuaDashboard/gestion_interns.html#">Home</a></li>                    
                     <li class="active">Dashboard</li>
                     <li class="active">projet</li>
                 </ul>
+                <div class="col-md-5" >
+                 
+                      <div class="alert alert-success"role="alert"  ng-show="alertEror">
+                                 <button class="close" data-dismiss="alert">
+                                 <span aria-hidden="true">*</span>
+                                 <span class="sr-only">Close</span>
+                                 </button>
+                                 <strong>!!!!supprimer client</strong>
+                                   {{suppClient}}
+                              </div>
+                     
+                    
+                              
+                    
+                     
+                  </div> 
                 <!-- END BREADCRUMB -->  
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
@@ -262,8 +285,6 @@
                                                 <th>Adress</th>
                                                 <th>Numtel</th>
                                                 <th>action</th>
-
-                                                
                                             </tr>
                                         </thead>
                                         <tbody  ng-repeat="client in searchClient" ng-show="superUser">>
@@ -284,6 +305,7 @@
                                     </table>                                    
                                     
                                 </div>
+                            </div>
                             </div>
                             <!-- END DATATABLE EXPORT -->                            
                             
@@ -326,7 +348,6 @@
                                         </div>
                                     </div>                               
                                 </div>
-                               
                             </div>
                             <!-- END DEFAULT TABLE EXPORT -->
 

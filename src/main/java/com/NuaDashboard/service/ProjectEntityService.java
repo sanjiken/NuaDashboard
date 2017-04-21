@@ -66,8 +66,8 @@ public  List<ProjetModelResult>  searchProjetServiceClient(Integer user){
 						+"u.isDeleted, "
 						+"u.idClient.id, "
 						+"u.idInterne.id )     "
-					   + " FROM ProjetEntity u   "
-					   + " WHERE u.idClient.id = :p1  ")
+					   + "FROM ProjetEntity u   "
+					   + "WHERE u.idClient.id = :p1  ")
 					.setParameter("p1", user);
 			
 			List<ProjetModelResult> projet = (List<ProjetModelResult>) query.getResultList();
@@ -245,5 +245,73 @@ public  List<modelInterneResult> searchInternTTService(){
 		}
 		
 }	
+
+public  String editProjetService(ProjetModelRequest projetRequest, Integer idProjet){
+	
+	String isSucces ="succes" ;
+	System.out.println("ProjectEntityService.editProjetService()"+ projetRequest.getProjetName());
+	try {
+	/*
+	 * get client
+	 */
+	
+	Query query = em.createQuery(" SELECT u "
+		   + " FROM UserEntity u   "
+		   + " WHERE u.id = :p1 "
+		   + "AND u.isDeleted = :p2  ")
+		.setParameter("p1",Integer.parseInt(projetRequest.getIdClient()))
+		.setParameter("p2", false);
+
+	UserEntity client= (UserEntity) query.getSingleResult();
+	
+	/*
+	 * get Intern
+	 */
+	//System.out.println("ProjectEntityService.addProjetService()"+ projetRequest.getIdInterne());
+Query q = em.createQuery(" SELECT u "
+	   + " FROM UserEntity u   "
+	   + " WHERE u.id = :p1 "
+	   + "AND u.isDeleted = :p2  ")
+	.setParameter("p1", Integer.parseInt(projetRequest.getIdInterne()))
+	.setParameter("p2", false);
+
+UserEntity interne = (UserEntity) q.getSingleResult();
+/* 
+ * edit projet id = idProjet
+ */
+Query Q = em.createQuery(" SELECT u "
+		   +  " FROM ProjetEntity u   "
+		   +  " WHERE u.id = :p1 ")
+	.setParameter("p1", idProjet);
+
+ProjetEntity  ProjetEntity = (ProjetEntity) Q.getSingleResult();	
+	
+ProjetEntity.setProjetName(projetRequest.getProjetName());
+ProjetEntity.setPropriete(projetRequest.getPropriete());
+ProjetEntity.setStatue(false);
+ProjetEntity.setSupport(projetRequest.getSupport());
+ProjetEntity.setIsDeleted(false);
+ProjetEntity.setIdClient(client);
+ProjetEntity.setIdInterne(interne);
+			
+			
+			
+			
+em.merge(ProjetEntity);
+		} catch (Exception e) {
+			e.printStackTrace();
+			isSucces = "error";
+		}
+	
+	
+	
+	return isSucces;
+
+	
+	     
+	}
+	
+
+
 
 }

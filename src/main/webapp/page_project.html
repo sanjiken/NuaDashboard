@@ -26,6 +26,8 @@
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerProfil.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerGestionClt.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerMsg.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
 	
@@ -58,7 +60,7 @@
                     <li>
                         <a href="page_project.html"><span class="fa fa-list-ul"></span> <span class="xn-text"><b>projet</b></span></a>
                     </li> 
-                    <li class="xn-openable">
+                    <li class="xn-openable" >
                        <a href="#"><span class="fa fa-cogs"></span><b> administration</b></a>
                            <ul>
                              <li ><a href="gestion_client.html" ><span class="fa fa-edit"></span> <b>gestion des clients</b></a></li>
@@ -234,6 +236,7 @@
                                 <div class="panel-heading">
                                     <h3 class="panel-title">liste de project</h3>
                                     <div class="btn-group pull-right">
+                                  <button ng-click="newprojetJs()" class="btn btn btn-info">new</button>
                                         <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
                                         <ul class="dropdown-menu">
                                             <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='img/icons/json.png' width="24"/> JSON</a></li>
@@ -266,6 +269,7 @@
                                                 <th>idClient</th>
                                                 <th>idInterne</th>
                                                 <th>support</th>
+                                                <th>action</th>
                                             </tr>
                                         </thead>
                                         <tbody  ng-repeat="projet in searchProjetClient" ng-show="client">
@@ -276,6 +280,7 @@
                                                 <td>{{projet.idClient}}</td>
                                                 <td>{{projet.idInterne}}</td>
                                                 <!--  <td> <a href=""+{{projet.support}}+".html">{{projet.support}}</a> </td>-->
+                                                <td><button ng-click="editprojetJs(projet)" class="btn btn btn-info">edit</button></td>
                                           
                                             </tr>
                                            
@@ -288,7 +293,7 @@
                                                 <td>{{projet.idClient}}</td>
                                                 <td>{{projet.idInterne}}</td>
                                                  <!--  <td> <a href=""+{{projet.support}}+".html">{{projet.support}}</a> </td>-->
-                                          
+                                          <td><button ng-click="editprojetJs(projet)" class="btn btn btn-info">edit</button></td>
                                             </tr>
                                            
                                         </tbody>
@@ -299,18 +304,18 @@
                                                 <td>{{projet.statue}}</td>
                                                 <td>{{projet.idClient}}</td>
                                                 <td>{{projet.idInterne}}</td>
-                                                  <!--  <td> <a href=""+{{projet.support}}+".html">{{projet.support}}</a> </td>-->
-                                          
+                                                 <td> <a href="{{projet.support}}.html">{{projet.support}}</a> </td>
+                                          <td><button ng-click="editprojetJs(projet)" class="btn btn btn-info">edit</button></td>
                                             </tr>
                                            
                                         </tbody>
                                     </table>                                    
                                     
-                               <div ng-show="superUser">
+                               <div ng-show="newe">
                                  <div class="panel-heading">
                                     <h3 class="panel-title">ajouter un nouveau projet</h3>
                                   </div><h5> remplir ce formulaire s'il vous plait</h5>
-                                </div>     
+                                    
                                 
                                 <div>
            						
@@ -337,13 +342,11 @@
                    					 <div class="form-group">
                       					   <div class="col-md-5">
                       					  	 <select ng-model="vm.angularbeanProjet.projet.idClient">
-                      					  	 
                       					 	  <option value="{{client.id}}" ng-repeat="client in findClient">{{client.userName}}</option>
                       					  	 </select >
                      					  
                  				
                       					  <select ng-model="vm.angularbeanProjet.projet.idInterne">
-                      					  	 
                       					 	  <option value="{{interne.id}}" ng-repeat="interne in findIntern">{{interne.userName}}</option>
                       					  	 </select >
                      					   </div>
@@ -363,7 +366,65 @@
                                 		  <div> <b>{{response}}</b></div>
                                 
                                 </div>
+                           </div> 
                            
+                           <div ng-show="edit">
+                                 <div class="panel-heading">
+                                    <h3 class="panel-title">modifier un nouveau projet</h3>
+                                  </div><h5> remplir le nouveau  formulaire s'il vous plait</h5>
+                                    
+                                
+                                <div>
+           						
+                                <div  >
+                                 <form  class="form-horizontal" >
+                    				 <div class="form-group">
+                       					 <div class="col-md-5">
+                        				    <input type="text" class="form-control" placeholder="projetName" ng-model="projetedit.projetName" />
+                    				    </div>
+                   					 </div>
+                    				 <div class="form-group">
+                      					  <div class="col-md-5">
+                        				    <input type="text" class="form-control" placeholder="propriete" ng-model="projetedit.propriete"/>
+                        				</div>
+                   					 </div>
+                      				
+                  					   <div class="form-group">
+                  					   
+                       						 <div class="col-md-5">
+                        					    <input type="text" class="form-control" placeholder="support" ng-model="projetedit.support"/>
+                       						 </div>
+                   						 </div>
+                   						 
+                   					 <div class="form-group">
+                      					   <div class="col-md-5">
+                      					 +client:
+                      					  	 <select ng-model="projetedit.idClient">
+                      					 	  <option value="{{client.id}}" ng-repeat="client in findClient">{{client.userName}} : {{client.id}}</option>
+                      					  	 </select >
+                     					  
+                 				          +interne :
+                      					  <select ng-model="projetedit.idInterne">
+                      					 	  <option ng-repeat="interne in findIntern"  value="{{interne.id}}">{{interne.userName}}: {{interne.id}}</option>
+                      					  	 </select >
+                     					   </div>
+                   					 </div>
+                   					 </div><br>
+                    
+                   
+                   						 <div class="form-group">
+                      						  <div class="col-md-2">
+                           						 <button class="btn btn-info btn-block" ng-click="editProjetCtrlJs(projetedit)" >modifier</button>
+                     						   </div>
+               						     </div>
+                                            
+                                
+                    
+                                      </form><br>
+                                		  <div> <b>{{editprojet}}</b></div>
+                                
+                                </div>
+                           </div> 
                                 </div>
                                 
                             </div>

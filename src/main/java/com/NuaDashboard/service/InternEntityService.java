@@ -10,8 +10,6 @@ import javax.persistence.Query;
 
 import com.NuaDashboard.entity.RoleEntity;
 import com.NuaDashboard.entity.UserEntity;
-import com.NuaDashboard.model.UserModelRequestAdd;
-import com.NuaDashboard.model.UserModelRequestCnx;
 import com.NuaDashboard.model.UserModelResultCnx;
 import com.NuaDashboard.model.modelInterneResult;
 
@@ -35,9 +33,11 @@ public class InternEntityService {
 						+"u.adress )"
 					   + " FROM UserEntity u   "
 					   + " WHERE u.idRole.id = :p1 "
-					   + "AND u.isDeleted = :p2  ")
+					   + "AND u.isActivate = :p2  "
+					   + "AND u.isDeleted = :p3  ")
 					.setParameter("p1",3)
-					.setParameter("p2", false);
+					.setParameter("p2",true)
+					.setParameter("p3", false);
 			
 			List<modelInterneResult> user = (List<modelInterneResult>) query.getResultList();
 			
@@ -62,28 +62,19 @@ public String suppInternService(Integer intern){
 			
 			
 			try {
-				Query query = em.createQuery(" SELECT new com.NuaDashboard.model.UserModelResultCnx(  "
-						+ " u.id ,      "
-						+ " u.userName ,  "
-						+ " u.isActivate , "
-						+ " u.isDeleted ,  "
-						+ " u.email ,    "
-						+ " u.numtel ,     "
-						+ " u.adress ,"
-						+ " u.idRole.abr )     "
+				Query query = em.createQuery(" SELECT u "
 					   +  " FROM UserEntity u   "
 					   +  " WHERE u.id = :p1 ")
 				.setParameter("p1", intern);
 			
 				
-			UserModelResultCnx userResult = new UserModelResultCnx();
 			
-			userResult = (UserModelResultCnx)  query.getSingleResult();
-			userResult.setIsDeleted(true);
+				UserEntity  userEntity = (UserEntity)  query.getSingleResult();
+			
+			
+			userEntity.setIsDeleted(true);
 				
-				
-				
-			em.merge(userResult);
+			em.merge(userEntity);
 			
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -100,5 +91,99 @@ public String suppInternService(Integer intern){
 		
 	
 }
+
+
+
 	
+
+
+
+public String editInternService(Integer intern){
+	
+	
+	
+	String isSucces = "succes" ;
+	System.out.println("InternEntityService.suppInternService()"+ intern);
+
+		
+		
+		
+		try {
+			
+			Query q = em.createQuery("SELECT u FROM RoleEntity u WHERE u.id = :p1")
+					.setParameter("p1",2);
+			RoleEntity role = (RoleEntity) q.getSingleResult();
+			
+			Query query = em.createQuery(" SELECT u "
+				   +  " FROM UserEntity u   "
+				   +  " WHERE u.id = :p1 ")
+			.setParameter("p1", intern);
+		
+			
+		
+			UserEntity  userEntity = (UserEntity)  query.getSingleResult();
+		
+		
+		userEntity.setIdRole(role);	
+		em.merge(userEntity);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			isSucces = "error";
+		}
+	
+	
+	
+	
+	
+	return isSucces;
+
+	
+	
+
+}
+
+
+
+
+public String desactiveInternService(Integer intern){
+	
+	String isSucces = "succes" ;
+	System.out.println("InternEntityService.activeInternService()"+ intern);
+
+		
+		
+		
+		try {
+			Query query = em.createQuery(" SELECT u "
+				   +  " FROM UserEntity u   "
+				   +  " WHERE u.id = :p1 ")
+			.setParameter("p1", intern);
+		
+			
+		
+			UserEntity  userEntity = (UserEntity)  query.getSingleResult();
+		
+		
+		userEntity.setIsActivate(false);
+		
+		em.merge(userEntity);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			isSucces = "error";
+		}
+	
+	
+	
+	
+	
+	return isSucces;
+
+	
+	
+
+}
+
+
 }

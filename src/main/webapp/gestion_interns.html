@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myModule"  ng-controller="InternCtrl as vm" >
+<html lang="en">
     <head>        
         <!-- META SECTION -->
         <title>Nuage Dashboard</title>            
@@ -20,14 +20,19 @@
 		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="angular-beans.js"></script> 
 		<script type="text/javascript" src="js/controllers/controllerGestInterne.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
-		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerMsg.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
     </head>
+<<<<<<< HEAD
+    <body ng-app="myModule"  ng-controller="InternCtrl as vm">
+=======
     <body>
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
             
@@ -54,8 +59,13 @@
                     <li>
                         <a href="http://localhost:8090/NuaDashboard/page_project.html"><span class="fa fa-list-ul"></span> <span class="xn-text"><b>projet</b></span></a>
                     </li> 
+<<<<<<< HEAD
+                    <li class="active" >
+                       <a href="#"><span class="fa fa-cogs"></span><b> administration</b></a>
+=======
                     <li class="active">
                        <a href="http://localhost:8090/NuaDashboard/gestion_interns.html#"><span class="fa fa-cogs"></span><b> administration</b></a>
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
                            <ul>
                              <li><a href="http://localhost:8090/NuaDashboard/gestion_client.html"><span class="fa fa-edit"></span> <b>gestion des clients</b></a></li>
                               <li><a href="http://localhost:8090/NuaDashboard/gestion_interns.html"><span class="fa fa-edit"></span> <b>gestion des internes</b></a></li>
@@ -63,8 +73,13 @@
                              
                            </ul>
                     </li>
+<<<<<<< HEAD
+                   <li>
+                        <a href="pages-messages.html"><span class="fa fa-comments"></span> <span class="xn-text"><b>contact us</b></span></a>
+=======
                      <li>
                         <a href="http://localhost:8090/NuaDashboard/pages-messages.html"><span class="fa fa-comments"></span> <span class="xn-text"><b>contact us</b></span></a>
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
                     </li> 
                      <li>
                         <a href="http://localhost:8090/NuaDashboard/pages-gallery.html"><span class="fa fa-download"></span> <span class="xn-text"><b>notification</b></span></a>
@@ -80,7 +95,14 @@
                     </li> 
                    
                    
+<<<<<<< HEAD
+           
+                  
+                <!-- END X-NAVIGATION -->
+            </div>
+=======
             </ul></div>
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
             <!-- END PAGE SIDEBAR -->
             
             <!-- PAGE CONTENT -->
@@ -201,16 +223,48 @@
                 </ul>
                 <!-- END X-NAVIGATION VERTICAL -->                     
 
-                <!-- START BREADCRUMB -->
+               
+             <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="http://localhost:8090/NuaDashboard/gestion_interns.html#">Home</a></li>                    
                     <li class="active">Dashboard</li>
                     <li class="active">projet</li>
                 </ul>
+                <div class="col-md-5" >
+                     <div class="alert alert-success"role="alert"  ng-show="alertEdit">
+                                 <button class="close" data-dismiss="alert">
+                                 <span aria-hidden="true">*</span>
+                                 <span class="sr-only">Close</span>
+                                 </button>
+                                 <strong>!!!! interne sera client:</strong>
+                                   {{editInt}}
+                              </div>
+                      <div class="alert alert-success"role="alert"  ng-show="alertEror">
+                                 <button class="close" data-dismiss="alert">
+                                 <span aria-hidden="true">*</span>
+                                 <span class="sr-only">Close</span>
+                                 </button>
+                                 <strong>!!!!supprimer interne</strong>
+                                   {{suppIntern}}
+                              </div>
+                     
+                      <div class="alert alert-success"role="alert"  ng-show="alertDesact">
+                                 <button class="close" data-dismiss="alert">
+                                 <span aria-hidden="true">*</span>
+                                 <span class="sr-only">Close</span>
+                                 </button>
+                                 <strong>!!!desactive interne</strong>
+                                   {{desact}}
+                              </div>
+                              
+                    
+                     
+                  </div> 
+                  
                 <!-- END BREADCRUMB -->  
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Table intern</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Table project</h2>
                 </div>
                 <!-- END PAGE TITLE -->                 
                 
@@ -224,9 +278,10 @@
                             
                             <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-default">
-                                <div class="panel-heading ui-draggable-handle">
-                                    <h3 class="panel-title">liste de interns</h3>
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">liste des internes</h3>
                                     <div class="btn-group pull-right">
+                                  <button ng-click="newprojetJs()" class="btn btn btn-info">new</button>
                                         <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
                                         <ul class="dropdown-menu">
                                             <li><a href="http://localhost:8090/NuaDashboard/gestion_interns.html#" onclick="$(&#39;#customers2&#39;).tableExport({type:&#39;json&#39;,escape:&#39;false&#39;});"><img src="./Nuage Dashboard_files/json.png" width="24"> JSON</a></li>
@@ -250,7 +305,12 @@
                                     
                                 </div>
                                 <div class="panel-body">
+<<<<<<< HEAD
+                                    <table id="customers2" class="table datatable">
+
+=======
                                     <div id="customers2_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="customers2_length"><label>Show <select name="customers2_length" aria-controls="customers2" class="form-control"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="customers2_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control " placeholder="" aria-controls="customers2"></label></div><table id="customers2" class="table datatable dataTable no-footer" role="grid" aria-describedby="customers2_info">
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
                                         <thead>
                                             <tr>
                                                 <th>nom_intern</th>
@@ -260,14 +320,17 @@
                                                 <th>action</th>
                                             </tr>
                                         </thead>
-                                        <tbody ng-repeat="intern in internTT">
+                                        <tbody ng-repeat="intern in findIntern">
                                             <tr>
                                                 <td>{{intern.userName}}</td>
                                                 <td>{{intern.email}}</td>
                                                 <td>{{intern.numtel}}</td>
                                                 <td>{{intern.adress}}</td>
-                                                <td> <button ng-click="suppInternJs(intern.id)">supp</button><br>{{suppIntern}} </td>
+                                                <td><button ng-click="desactiveInternJs(intern.id)" class="btn btn btn-info" >desactiver</button> <button ng-click="editInternJs(intern.id)" class="btn btn btn-info">edit</button><button ng-click="suppInternJs(intern.id)" class="btn btn btn-info">delete</button></td> 
                                             </tr>
+<<<<<<< HEAD
+
+=======
                                         <tr role="row" class="odd">
                                                 <td class="sorting_1">{{intern.userName}}</td>
                                                 <td>{{intern.email}}</td>
@@ -276,9 +339,18 @@
                                                 <td> <button ng-click="suppInternJs(intern.id)">supp</button> </td>
                                             </tr></tbody>
                                     </table><div class="dataTables_info" id="customers2_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div><div class="dataTables_paginate paging_simple_numbers" id="customers2_paginate"><a class="paginate_button previous disabled" aria-controls="customers2" data-dt-idx="0" tabindex="0" id="customers2_previous">Previous</a><span><a class="paginate_button current" aria-controls="customers2" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="customers2" data-dt-idx="2" tabindex="0" id="customers2_next">Next</a></div></div>                                    
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
                                         </tbody>
+<<<<<<< HEAD
+                                    </table>                       
+                       
+                 
+=======
                                     </table>                                    
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
                                 </div>
+                                
+                            </div>
                             </div>
                             <!-- END DATATABLE EXPORT -->                            
                             
@@ -321,7 +393,7 @@
                                         </div>
                                     </div>                               
                                 </div>
-                               
+                            
                             </div>
                             <!-- END DEFAULT TABLE EXPORT -->
 
@@ -408,5 +480,8 @@
         <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->                 
     
+
+
+
 
 

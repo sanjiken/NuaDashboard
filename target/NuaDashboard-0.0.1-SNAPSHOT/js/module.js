@@ -5,5 +5,11 @@ var myModule = angular.module("myModule", ["angularBeans","ngMaterial","ngCookie
 .controller('indexCtrl',indexCtrl)
 .controller('projetCtrl',projetCtrl)
 .controller('InternCtrl',InternCtrl)
+<<<<<<< HEAD
 .controller('clientCtrl',clientCtrl)
+=======
+.controller('CltCtrl',CltCtrl)
+.controller('SommaireCtrl',SommaireCtrl)
+.controller('MsgCtrl',MsgCtrl)
+>>>>>>> branch 'master' of https://github.com/sanjiken/NuaDashboard.git
 ;

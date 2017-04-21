@@ -69,4 +69,11 @@ public class AngularbeanProjet {
 	public List<modelInterneResult> getInternTT( ){
 		return projetEntityService.searchInternTTService();
 	}
+	
+	@Get
+	@NGReturn(model = "msgProjetedit")
+	public String editprojetJsBean(ProjetModelRequest ProjetModelRequest,Integer idProjet) {
+
+		return projetEntityService.editProjetService(ProjetModelRequest,idProjet);
+	}
 }

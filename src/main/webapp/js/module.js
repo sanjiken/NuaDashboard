@@ -6,4 +6,7 @@ var myModule = angular.module("myModule", ["angularBeans","ngMaterial","ngCookie
 .controller('projetCtrl',projetCtrl)
 .controller('InternCtrl',InternCtrl)
 .controller('clientCtrl',clientCtrl)
+.controller('CltCtrl',CltCtrl)
+.controller('MsgCtrl',MsgCtrl)
+.controller('SommaireCtrl',SommaireCtrl)
 ;

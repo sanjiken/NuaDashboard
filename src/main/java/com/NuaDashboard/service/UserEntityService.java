@@ -126,7 +126,8 @@ public class UserEntityService {
 						+ " u.email ,    "
 						+ " u.numtel ,     "
 						+ " u.adress ,"
-						+ " u.idRole.abr )     "
+						+ " u.idRole.abr,    "
+						+ " u.isSA )  "
 					   +  " FROM UserEntity u   "
 					   +  " WHERE u.email = :p1 and u.password= :p2 ")
 				.setParameter("p1", user.getEmail())

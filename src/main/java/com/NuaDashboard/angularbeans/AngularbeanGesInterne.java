@@ -7,10 +7,12 @@ import javax.inject.Inject;
 import com.NuaDashboard.model.modelInterneResult;
 import com.NuaDashboard.service.InternEntityService;
 
+import angularBeans.api.AngularBean;
 import angularBeans.api.NGReturn;
 import angularBeans.api.http.Get;
 import angularBeans.util.ModelQuery;
 
+@AngularBean
 public class AngularbeanGesInterne {
 
 	@Inject
@@ -34,7 +36,19 @@ public class AngularbeanGesInterne {
 	}
 	
 	
-
 	
+	
+	@Get
+	@NGReturn(model = "editIntern")
+	public String editbeanIntern(Integer id){
+		return InternEntityService.editInternService(id);
+	}
+	
+	
+	@Get
+	@NGReturn(model = "activeIntern")
+	public String desactivebeanIntern(Integer id){
+		return InternEntityService.desactiveInternService(id);
+	}
 	
 }

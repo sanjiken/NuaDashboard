@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>        
+ <head>        
         <!-- META SECTION -->
-        <title>NuageDashboard</title>            
+        <title>Nuage Dashboard</title>            
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,7 +11,7 @@
         <!-- END META SECTION -->
         
         <!-- CSS INCLUDE -->        
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-black.css"/>
         <!-- EOF CSS INCLUDE -->   
         <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -22,19 +22,23 @@
 		<script type="text/javascript" src="js/controllers/controllerGestInterne.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
-		
+		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerMsg.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerSommaire.js"></script>
+			<script type="text/javascript" src="js/controllers/controllerGesClt.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
 		
                                          
     </head>
-    <body ng-app="myModule" ng-controller="indexCtrl">
+    <body  ng-app="myModule" ng-controller="MsgCtrl">
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
             
-        <!-- START PAGE SIDEBAR -->
-             <div class="page-sidebar">
+            <!-- START PAGE SIDEBAR -->
+              <div class="page-sidebar">
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     
@@ -56,7 +60,7 @@
                     <li>
                         <a href="page_project.html"><span class="fa fa-list-ul"></span> <span class="xn-text"><b>projet</b></span></a>
                     </li> 
-                    <li >
+                    <li>
                        <a href="#"><span class="fa fa-cogs"></span><b> administration</b></a>
                            <ul>
                              <li ><a href="gestion_client.html" ><span class="fa fa-edit"></span> <b>gestion des clients</b></a></li>
@@ -65,7 +69,7 @@
                              
                            </ul>
                     </li>
-                    <li class="active">
+                     <li  class="active">
                         <a href="pages-messages.html"><span class="fa fa-comments"></span> <span class="xn-text"><b>contact us</b></span></a>
                     </li> 
                      <li>
@@ -83,6 +87,7 @@
                    
                    
             </div>
+         
             <!-- END PAGE SIDEBAR -->
             
             <!-- PAGE CONTENT -->
@@ -121,25 +126,25 @@
                             <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
                                 <a href="#" class="list-group-item">
                                     <div class="list-group-status status-online"></div>
-                                    <img src="assets/images/users/user2.jpg" class="pull-left" alt="John Doe"/>
+                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="John Doe"/>
                                     <span class="contacts-title">John Doe</span>
                                     <p>Praesent placerat tellus id augue condimentum</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <div class="list-group-status status-away"></div>
-                                    <img src="assets/images/users/user.jpg" class="pull-left" alt="Dmitry Ivaniuk"/>
+                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="Dmitry Ivaniuk"/>
                                     <span class="contacts-title">Dmitry Ivaniuk</span>
                                     <p>Donec risus sapien, sagittis et magna quis</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <div class="list-group-status status-away"></div>
-                                    <img src="assets/images/users/user3.jpg" class="pull-left" alt="Nadia Ali"/>
+                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="Nadia Ali"/>
                                     <span class="contacts-title">Nadia Ali</span>
                                     <p>Mauris vel eros ut nunc rhoncus cursus sed</p>
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <div class="list-group-status status-offline"></div>
-                                    <img src="assets/images/users/user6.jpg" class="pull-left" alt="Darth Vader"/>
+                                    <img src="assets/images/users/no-image.jpg" class="pull-left" alt="Darth Vader"/>
                                     <span class="contacts-title">Darth Vader</span>
                                     <p>I want my money back!</p>
                                 </a>
@@ -216,7 +221,7 @@
                             <h2><span class="fa fa-comments"></span> Messages</h2>
                         </div>                                                    
                         <div class="pull-right">                            
-                            <button class="btn btn-danger"><span class="fa fa-book"></span> Contacts</button>
+                            <button class="btn btn-info"><span class="glyphicon glyphicon-envelope"></span></button>
                             <button class="btn btn-default content-frame-right-toggle"><span class="fa fa-bars"></span></button>
                         </div>                           
                     </div>
@@ -225,141 +230,84 @@
                     <!-- START CONTENT FRAME RIGHT -->
                     <div class="content-frame-right">
                         
-                        <div class="list-group list-group-contacts border-bottom push-down-10">
-                            <a href="#" class="list-group-item">                                 
-                                <div class="list-group-status status-online"></div>
-                                <img src="assets/images/users/user.jpg" class="pull-left" alt="Dmitry Ivaniuk">
-                                <span class="contacts-title">Dmitry Ivaniuk</span>
-                                <p>Hello my friend, how are...</p>
+                        <div class="list-group list-group-contacts border-bottom push-down-10" ng-show="superUser">
+                            <a href="#" class="list-group-item" ng-repeat="pers in findIntClt">                                 
+                           <button class="btn btn-info" ng-click="contacterJs(pers.id)"><span class="glyphicon glyphicon-envelope"></span></button> 
+                       <!-- <img src="assets/images/users/{{person.userName}}.jpg" class="pull-left" alt="{{Sa.userName}}" > -->
+                                <span class="contacts-title">{{pers.userName}}</span>
                             </a>                                
-                            <a href="#" class="list-group-item">                                    
-                                <div class="list-group-status status-online"></div>
-                                <img src="assets/images/users/user3.jpg" class="pull-left" alt="Nadia Ali">
-                                <span class="contacts-title">Nadia Ali</span>
-                                <p>Wanna se my photos?</p>
-                            </a>                                                                
-                            <a href="#" class="list-group-item active">         
-                                <div class="list-group-status status-online"></div>
-                                <img src="assets/images/users/user2.jpg" class="pull-left" alt="John Doe">
-                                <div class="contacts-title">John Doe <span class="label label-danger">5</span></div>
-                                <p>This project is awesome</p>                                       
-                            </a>
-                            <a href="#" class="list-group-item">         
-                                <div class="list-group-status status-away"></div>
-                                <img src="assets/images/users/user4.jpg" class="pull-left" alt="Brad Pitt">
-                                <span class="contacts-title">Brad Pitt</span>
-                                <p>ok</p>                     
-                            </a>
-                            <a href="#" class="list-group-item">         
-                                <div class="list-group-status status-offline"></div>
-                                <img src="assets/images/users/no-image.jpg" class="pull-left" alt="Darth Vader">
-                                <span class="contacts-title">Darth Vader</span>
-                                <p>We should win this war!!!1</p>
-                            </a>
-                            <a href="#" class="list-group-item">         
-                                <div class="list-group-status status-offline"></div>
-                                <img src="assets/images/users/no-image.jpg" class="pull-left" alt="Kim Kardashian">
-                                <span class="contacts-title">Kim Kardashian</span>
-                                <p>You received a letter from Darth?</p>
-                            </a>
-                            <a href="#" class="list-group-item">         
-                                <div class="list-group-status status-offline"></div>
-                                <img src="assets/images/users/no-image.jpg" class="pull-left" alt="Jason Statham">
-                                <span class="contacts-title">Jason Statham</span>
-                                <p>Lets play chess...</p>
-                            </a>                            
+                            
                         </div>
                         
-                        <div class="block">
-                            <h4>Status</h4>
-                            <div class="list-group list-group-simple">                                
-                                <a href="#" class="list-group-item"><span class="fa fa-circle text-success"></span> Online</a>
-                                <a href="#" class="list-group-item"><span class="fa fa-circle text-warning"></span> Away</a>
-                                <a href="#" class="list-group-item"><span class="fa fa-circle text-muted"></span> Offline</a>                                
-                            </div>
+                        <div class="list-group list-group-contacts border-bottom push-down-10" ng-show="client" >
+                            <a href="#" class="list-group-item" ng-repeat="pers in findIntSa">                                 
+                             <button class="btn btn-info" ng-click="contacterJs(pers.id)"><span class="glyphicon glyphicon-envelope"></span></button> 
+
+                                <!--  <img src="assets/images/users/{{Clt.userName}}.jpg" class="pull-left"  alt="{{Clt.userName}}" >-->
+                                <span class="contacts-title">{{pers.userName}}</span>
+                            </a>                                
+                            
                         </div>
+                        
+                       <div class="list-group list-group-contacts border-bottom push-down-10" ng-show="interne">
+                            <a href="#" class="list-group-item" ng-repeat="pers in findIntSaClt">                                 
+                             <button class="btn btn-info" ng-click="contacterJs(pers.id)"><span class="glyphicon glyphicon-envelope"></span></button> 
+
+                               <!-- <img src="assets/images/users/{{Inte.userName}}.jpg" class="pull-left" alt="{{Inte.userName}}" > -->
+          
+                            <span class="contacts-title">{{pers.userName}}</span>
+                         
+                            </a>                                
+                            
+                        </div>
+                      
                         
                     </div>
                     <!-- END CONTENT FRAME RIGHT -->
                 
                     <!-- START CONTENT FRAME BODY -->
+                    
                     <div class="content-frame-body content-frame-body-left">
                         
                         <div class="messages messages-img">
-                            <div class="item in">
-                                <div class="image">
-                                    <img src="assets/images/users/user2.jpg" alt="John Doe">
-                                </div>
-                                <div class="text">
-                                    <div class="heading">
-                                        <a href="#">John Doe</a>
-                                        <span class="date">08:33</span>
-                                    </div>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis suscipit eros vitae iaculis.
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image">
-                                    <img src="assets/images/users/user.jpg" alt="Dmitry Ivaniuk">
-                                </div>                                
-                                <div class="text">
-                                    <div class="heading">
-                                        <a href="#">Dmitry Ivaniuk</a>
-                                        <span class="date">08:39</span>
-                                    </div>                                    
-                                    Integer et ipsum vitae urna mattis dictum. Sed eu sollicitudin nibh, in luctus velit.
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image">
-                                    <img src="assets/images/users/user.jpg" alt="Dmitry Ivaniuk">
-                                </div>                                
-                                <div class="text">
-                                    <div class="heading">
-                                        <a href="#">Dmitry Ivaniuk</a>
-                                        <span class="date">08:42</span>
-                                    </div>                                    
-                                    In dapibus ex ut nisl laoreet aliquam. Donec in mollis leo. Aenean nec suscipit neque, non iaculis justo. Quisque eget odio efficitur, porta risus vitae, sagittis neque.
-                                </div>
-                            </div>
-                            <div class="item in">
-                                <div class="image">
-                                    <img src="assets/images/users/user2.jpg" alt="John Doe">
-                                </div>
-                                <div class="text">
-                                    <div class="heading">
-                                        <a href="#">John Doe</a>
-                                        <span class="date">08:58</span>
-                                    </div>
-                                    Curabitur et euismod urna?
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image">
-                                    <img src="assets/images/users/user.jpg" alt="Dmitry Ivaniuk">
-                                </div>                                
-                                <div class="text">
-                                    <div class="heading">
-                                        <a href="#">Dmitry Ivaniuk</a>
-                                        <span class="date">09:11</span>
-                                    </div>                                    
-                                    Fusce ultricies erat quis massa interdum, eu elementum urna iaculis
-                                </div>
-                            </div>
-                            <div class="item in">
-                                <div class="image">
-                                    <img src="assets/images/users/user2.jpg" alt="John Doe">
-                                </div>
-                                <div class="text">
-                                    <div class="heading">
-                                        <a href="#">John Doe</a>
-                                        <span class="date">09:22</span>
-                                    </div>
-                                    Vestibulum cursus ipsum ut dolor vulputate dapibus. Donec elementum est vel vulputate malesuada?
-                                </div>
-                            </div>
-                        </div>                        
                         
+                       
+                           <div class="item in" >
+                           <div  ng-repeat="msge in msgUserprim" >
+                                <div class="image">
+                       
+                                    <img src="assets/images/{{msge.UserActor.userName}}.jpeg" alt="John Doe">
+                                </div>
+                                <div class="text" >
+                                    <div class="heading">
+                                        <a href="#">{{msge.UserActor.userName}}</a>
+                                        <span class="date">{{msge.hour}}:{{msge.min}}</span><br>
+                                        <span class="date">{{msge.dat}}/{{msge.mon}}/{{msge.ye}}</span>
+                                    </div>
+                                    {{msge.contenuMesg}}
+                                </div>
+                             </div>
+                           </div>
+                           
+                           
+                          <!-- <div class="item" ng-show="!msge.isMe">
+                                <div class="image" >
+                                    <img src="assets/images/users/no-image.jpg" alt="Dmitry Ivaniuk">
+                                </div>                                
+                                <div class="text" >
+                                    <div class="heading">
+                                        <a href="#">{{msge.UserActor.userName}}</a>
+                                        <span class="date">{{msge.hour}}:{{msge.min}}</span><br>
+                                        <span class="date">{{msge.dat}}/{{msge.mon}}/{{msge.ye}}</span>
+                                    </div>                                    
+                                   {{msge.contenuMesg}}
+                                </div>
+                          
+                        </div>--> 
+                         
+                                             
+                        </div>
+                        </div>
                         <div class="panel panel-default push-up-10">
                             <div class="panel-body panel-body-search">
                                 <div class="input-group">
@@ -367,9 +315,10 @@
                                         <button class="btn btn-default"><span class="fa fa-camera"></span></button>
                                         <button class="btn btn-default"><span class="fa fa-chain"></span></button>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Your message..."/>
+                                    <input type="text" class="form-control" placeholder="Your message..."  ng-model="vm.contenu"/>
+                              
                                     <div class="input-group-btn">
-                                        <button class="btn btn-default">Send</button>
+                                        <button class="btn btn-default" ng-click="addMsgJs(vm.contenu)">Send</button>
                                     </div>
                                 </div>
                             </div>
@@ -422,7 +371,7 @@
         <!-- END PAGE PLUGINS -->     
 
         <!-- START TEMPLATE -->
-        <script type="text/javascript" src="js/settings.js"></script>
+       
         
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
@@ -430,9 +379,3 @@
     <!-- END SCRIPTS -->         
     </body>
 </html>
-
-
-
-
-
-
