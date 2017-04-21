@@ -7,6 +7,8 @@ function CtrlCnx(angularbeanUserCnx,$scope,$cookies,$window) {
 	$cookies.put('numtel',"null");
 	$cookies.put('adress',"null");
 	$cookies.put('role',"null");
+	$cookies.put('isSA',"null");
+	
 	var vm = this;
 	vm.angularbeanUserCnx = angularbeanUserCnx;
 
@@ -48,6 +50,7 @@ function CtrlCnx(angularbeanUserCnx,$scope,$cookies,$window) {
 										$cookies.put('numtel',$scope.findUser.numtel);
 										$cookies.put('adress',$scope.findUser.adress);
 										$cookies.put('role',$scope.findUser.role);
+										$cookies.put('isSA',$scope.findUser.isSA);
 										
 										if($scope.findUser.isActivate == true && $scope.findUser.isDeleted == false)
 										{

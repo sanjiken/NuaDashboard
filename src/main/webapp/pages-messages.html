@@ -253,8 +253,10 @@
                             <a href="#" class="list-group-item" ng-repeat="pers in findIntSaClt">                                 
                                 <div class="list-group-status status-online"></div>
                                <!-- <img src="assets/images/users/{{Inte.userName}}.jpg" class="pull-left" alt="{{Inte.userName}}" > -->
-                                <span class="contacts-title">{{pers.userName}}</span>
-                             <button ng-click="contacterJs(pers.id)">contact</button>
+                                
+                            <button class="btn btn-success" ng-click="contacterJs(pers.id)"><i class="glyphicon glyphicon-user"></i></button>
+                            <span class="contacts-title">{{pers.userName}}</span>
+                         
                             </a>                                
                             
                         </div>
@@ -276,38 +278,43 @@
                     <div class="content-frame-body content-frame-body-left">
                         
                         <div class="messages messages-img">
-                            <div class="item in"  ng-if="msgUserAct.UserActor.id == idAct">
-                             <div  ng-repeat="msg in msgUserAct">
+                        
+                        <div  ng-repeat="msge in msgUserprim" >
+                           <div class="item in" ng-show="msge.isMe">
+                          
                                 <div class="image">
                                     <img src="assets/images/users/no-image.jpg" alt="John Doe">
                                 </div>
                                 <div class="text" >
                                     <div class="heading">
-                                        <a href="#">{{msg.UserActor.userName}}</a>
-                                        <span class="date">{{msg.hour}}:{{msg.min}}</span>
+                                        <a href="#">{{msge.UserActor.userName}}</a>
+                                        <span class="date">{{msge.hour}}:{{msge.min}}</span><br>
+                                        <span class="date">{{msge.dat}}/{{msge.mon}}/{{msge.ye}}</span>
                                     </div>
-                                    {{msg.contenuMesg}}
+                                    {{msge.contenuMesg}}
                                 </div>
-                                </div>
-                            </div>
+                             
+                           </div>
                            
                            
-                           <div class="item"  ng-if="msgUserAct.UserActor.id != idAct">
-                                <div  ng-repeat="msg in msgUserAct">
+                           <div class="item" ng-show="!msge.isMe">
                                 <div class="image" >
                                     <img src="assets/images/users/no-image.jpg" alt="Dmitry Ivaniuk">
                                 </div>                                
                                 <div class="text" >
                                     <div class="heading">
-                                        <a href="#">{{msg.UserActor.userName}}</a>
-                                        <span class="date">{{msg.hour}}:{{msg.min}}</span>
+                                        <a href="#">{{msge.UserActor.userName}}</a>
+                                        <span class="date">{{msge.hour}}:{{msge.min}}</span><br>
+                                        <span class="date">{{msge.dat}}/{{msge.mon}}/{{msge.ye}}</span>
                                     </div>                                    
-                                   {{msg.contenuMesg}}
+                                   {{msge.contenuMesg}}
                                 </div>
-                                </div>
-                            </div>
-                        </div>                        
-                        
+                          
+                        </div> 
+                         
+                        </div>                      
+                        </div>
+                        </div>
                         <div class="panel panel-default push-up-10">
                             <div class="panel-body panel-body-search">
                                 <div class="input-group">

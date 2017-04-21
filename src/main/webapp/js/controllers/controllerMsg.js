@@ -6,6 +6,7 @@ function MsgCtrl(angularbeanMsg,$scope,$cookies,$window) {
 		$window.location.href ="pages-login.html";
 	}
 	
+	$scope.idAct = $cookies.get('id');
 
 	var vm=this;
 	vm.angularbeanMsg=angularbeanMsg;
@@ -48,18 +49,55 @@ function MsgCtrl(angularbeanMsg,$scope,$cookies,$window) {
 	
 
 	
-	 $scope.contacterJs = function(data,idAct){
+	 $scope.contacterJs = function(data){
+		 
 		 var idAct = $cookies.get('id');
-			console.log("id of actor2"+ idAct);
-		 console.log("id of receptor ");
-    	 console.dir(data);
+		 console.log("id of receptor "+ data);
     	 console.log("id of actor"+ idAct);
     	 
     	 $scope.idRcpt = data;
  			vm.angularbeanMsg.getbeanMsgActor(data,idAct).then(function(msgUser){
+ 				$scope.msgUserprim=[];
  				console.log("list de message du moi avec receptor")
- 				console.dir(msgUser);
  				$scope.msgUserAct = msgUser;
+ 				console.dir(msgUser);
+ 				$scope.msgUserAct.forEach(function(element) {
+ 					if(element.UserActor.id == idAct ){
+ 						var msg={
+ 								
+ 								contenuMesg : element.contenuMesg,
+ 								UserActor : element.UserActor,
+ 								UserRecepteur : element.UserRecepteur,
+ 								hour : element.hour,
+ 								min : element.min,
+ 								sec : element.sec,
+ 								dat : element.dat,
+ 								mon : element.mon,
+ 							    ye : element.ye,
+ 								isMe : true ,
+ 								item : "item in"
+ 								
+ 						};
+ 						
+ 					}else{
+ 						var msg={
+ 								contenuMesg : element.contenuMesg,
+ 								UserActor : element.UserActor,
+ 								UserRecepteur : element.UserRecepteur,
+ 								hour : element.hour,
+ 								min : element.min,
+ 								sec : element.sec,
+ 								dat : element.dat,
+ 								mon : element.mon,
+ 							    ye : element.ye,
+ 								isMe : false,
+ 								item : "item"
+ 						}	
+ 					}
+ 					
+ 				$scope.msgUserprim.push(msg);	
+ 				});
+ 				
 				console.log("im after getbeanMsg");
 				
  			});
@@ -77,11 +115,11 @@ function MsgCtrl(angularbeanMsg,$scope,$cookies,$window) {
  				$scope.msg = msgUser;
 				console.log("im after addbeanMsg");
 				
-			//	vm.angularbeanMsg.getbeanMsg(idRcpt,idAct).then(function(msgUser){
-	 				//$scope.msgUserAct = msgUser;
-					//console.log("im after getbeanMsg2");
+		vm.angularbeanMsg.getbeanMsg($scope.idRcpt,idAct).then(function(msgUser){
+	 				$scope.msgUserAct = msgUser;
+			console.log("im after getbeanMsg2");
 					
-	 		//	});
+	 			});
  			});
  		}
      
