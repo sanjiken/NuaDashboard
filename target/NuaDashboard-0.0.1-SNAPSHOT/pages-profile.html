@@ -19,11 +19,13 @@
 		<script src="bower_components/angular-material/angular-material.js"></script>
 		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="angular-beans.js"></script> 
+		<script type="text/javascript" src="js/controllers/controllerGestInterne.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
-		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerProfil.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerGestionClt.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
 		
@@ -240,15 +242,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel-body list-group border-label">
+                                  <div class="panel-body list-group border-label">
                                     <a href="#" class="list-group-item active"><span class="fa fa-bar-chart-o"></span> A propos</a>
-                                     <a href="#" class="list-group-item"><span class="fa fa-envelope"></span><b> Email:</b> {{emailuser}} </a>                                
-                                    <a href="#" class="list-group-item"><span class="fa fa-users"></span> <b>Habite à</b> {{adruser}} </a>
-                                    <a href="#" class="list-group-item"><span class="fa fa-comments"></span><b> Numero de téléphone :</b> {{numuser}} </a>
-                                    <a href="#" class="list-group-item"><span class="fa fa-envelope"></span><b> contactez-nous</b></a>
-                                    <a href="#" class="list-group-item"><span class="fa fa-folder" ></span><b> Décrivez-nous</b></a>
+                                   
+                            <input type="text" class="form-control" placeholder="email" ng-model="emailuser"/><br>
+                                      
+                            <input type="text" class="form-control" placeholder="Habite à" ng-model="adruser"/><br>
+                                      
+                            <input type="text" class="form-control" placeholder="Numero de téléphone " ng-model="numuser"/><br>
+                            
+                            <button class="btn btn-info btn-block" ng-click="EditProfilJs(vm.angularbeanPrfil.user)">save</button>
+                          
+                            
+                          
+         
                                 </div>
-                                <div class="panel-body">
+                             <div class="panel-body">
                                   
                                     <h4 class="text-title">Photos</h4>
                                     <div class="gallery" id="links">                                                
@@ -297,141 +306,63 @@
                             </div>                            
                             
                         </div>
-                        
-                        <div class="col-md-9">
-
-                            <!-- START TIMELINE -->
-                            <div class="timeline timeline-right">
-                                
-                                <!-- START TIMELINE ITEM -->
-                                <div class="timeline-item timeline-main">
-                                    <div class="timeline-date">Today</div>
-                                </div>
-                                <!-- END TIMELINE ITEM -->                                                  
-                                
-                                <!-- START TIMELINE ITEM -->
-                                <div class="timeline-item timeline-item-right">
-                                    <div class="timeline-item-info">21:37</div>
-                                    <div class="timeline-item-icon"><span class="fa fa-users"></span></div>                                   
-                                    <div class="timeline-item-content">
-                                        <div class="timeline-heading" style="padding-bottom: 10px;">
-                                            <img src="assets/images/users/user3.jpg"/>
-                                            <a href="#">Nadia Ali</a> added to friends 
-                                            <img src="assets/images/users/user.jpg"/>
-                                            <img src="assets/images/users/user2.jpg"/>
-                                            <img src="assets/images/users/user4.jpg"/>
-                                        </div>                                        
-                                        <div class="timeline-body comments">
-                                            <div class="comment-item">
-                                                <img src="assets/images/users/user.jpg"/>
-                                                <p class="comment-head">
-                                                    <a href="#">Dmitry Ivaniuk</a> <span class="text-muted">@Aqvatarius</span>
-                                                </p>
-                                                <p>Thank you so much... I would like to meet you :)</p>
-                                                <small class="text-muted">15min ago</small>
-                                            </div>                                            
-                                            <div class="comment-item">
-                                                <img src="assets/images/users/user3.jpg"/>
-                                                <p class="comment-head">
-                                                    <a href="#">Nadia Ali</a> <span class="text-muted">@nadiaAli</span>
-                                                </p>
-                                                <p>Sure, i will contact you ;)</p>
-                                                <small class="text-muted">16min ago</small>
-                                            </div>                                            
-                                            <div class="comment-write">                                                
-                                                <textarea class="form-control" placeholder="Write a comment" rows="1"></textarea>                                                
-                                            </div>
-                                        </div>
-                                    </div>                                    
-                                </div>       
-                                <!-- END TIMELINE ITEM -->
-
-                                <!-- START TIMELINE ITEM -->
-                                                               
-                               <div class="col-md-10">
+                    
                             
                             <!-- START PROJECTS BLOCK -->
+                            <div class="col-md-9">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
                                         <h3>Projects</h3>
                                         <span>Projects activity</span>
                                     </div>                                    
-                                    <ul class="panel-controls" style="margin-top: 4px;">
-                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
-                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>                                        
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
-                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
-                                            </ul>                                        
-                                        </li>                                        
-                                    </ul>
-                                </div>
-                                <div class="panel-body panel-body-table">
-                                    
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th width="50%">Project</th>
-                                                    <th width="20%">Status</th>
-                                                    <th width="30%">Activity</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Joli Admin</strong></td>
-                                                    <td><span class="label label-danger">Developing</span></td>
-                                                    <td>
-                                                        <div class="progress progress-small progress-striped active">
-                                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">85%</div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Gemini</strong></td>
-                                                    <td><span class="label label-warning">Updating</span></td>
-                                                    <td>
-                                                        <div class="progress progress-small progress-striped active">
-                                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">40%</div>
-                                                        </div>
-                                                    </td>
-                                                </tr>                                                
-                                                <tr>
-                                                    <td><strong>Taurus</strong></td>
-                                                    <td><span class="label label-warning">Updating</span></td>
-                                                    <td>
-                                                        <div class="progress progress-small progress-striped active">
-                                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 72%;">72%</div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Leo</strong></td>
-                                                    <td><span class="label label-success">Support</span></td>
-                                                    <td>
-                                                        <div class="progress progress-small progress-striped active">
-                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Virgo</strong></td>
-                                                    <td><span class="label label-success">Support</span></td>
-                                                    <td>
-                                                        <div class="progress progress-small progress-striped active">
-                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
-                                                        </div>
-                                                    </td>
-                                                </tr>                                                
+                                   <table id="customers2" class="table datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>projet Name</th>
+                                                <th>propriete</th>
+                                                <th>statue</th>
+                                                <th>idClient</th>
+                                                <th>idInterne</th>
+                                           
+                                            </tr>
+                                        </thead>
+                                        <tbody  ng-repeat="projet in searchProfilClient" ng-show="client">
+                                            <tr>
+                                                <td>{{projet.projetName}}</td>
+                                                <td>{{projet.propriete}}</td>
+                                                <td>{{projet.statue}}</td>
+                                                <td>{{projet.idClient}}</td>
+                                                <td>{{projet.idInterne}}</td>
+                                               
+                                          
+                                            </tr>
+                                           
+                                        </tbody>
+                                         <tbody  ng-repeat="projet in searchProfilInterne" ng-show="interne">
+                                            <tr>
+                                                <td>{{projet.projetName}}</td>
+                                                <td>{{projet.propriete}}</td>
+                                                <td>{{projet.statue}}</td>
+                                                <td>{{projet.idClient}}</td>
+                                                <td>{{projet.idInterne}}</td>
+                                                 
+                                            </tr>
+                                           
+                                        </tbody>
+                                         <tbody  ng-repeat="projet in searchProfilAdmin" ng-show="superUser">
+                                            <tr>
+                                                <td>{{projet.projetName}}</td>
+                                                <td>{{projet.propriete}}</td>
+                                                <td>{{projet.statue}}</td>
+                                                <td>{{projet.idClient}}</td>
+                                                <td>{{projet.idInterne}}</td>
                                                 
-                                            </tbody>
-                                        </table>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>                                    
                                     </div>
-                                    
-                                </div>
                             </div>
                             <!-- END PROJECTS BLOCK -->
                             
@@ -552,5 +483,3 @@
     <!-- END SCRIPTS -->         
     </body>
 </html>
-
-
