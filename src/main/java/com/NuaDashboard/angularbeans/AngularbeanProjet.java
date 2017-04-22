@@ -69,7 +69,6 @@ public class AngularbeanProjet {
 	public List<modelInterneResult> getInternTT( ){
 		return projetEntityService.searchInternTTService();
 	}
-
 	
 	@Get
 	@NGReturn(model = "msgProjetedit")
@@ -77,7 +76,4 @@ public class AngularbeanProjet {
 
 		return projetEntityService.editProjetService(ProjetModelRequest,idProjet);
 	}
-	
-	
-
 }

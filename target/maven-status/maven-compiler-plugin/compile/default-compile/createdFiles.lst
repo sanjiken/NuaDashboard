@@ -1,3 +1,4 @@
+com\NuaDashboard\model\ClientModelRequest.class
 com\NuaDashboard\service\ProjectEntityService.class
 com\NuaDashboard\entity\UserEntity.class
 com\NuaDashboard\model\UserModelResultCnx.class
@@ -13,6 +14,7 @@ com\NuaDashboard\service\SommaireEntityService.class
 com\NuaDashboard\angularbeans\AngularbeanSommaire.class
 com\NuaDashboard\service\InternEntityService.class
 com\NuaDashboard\model\ProjetModelRequest.class
+com\NuaDashboard\model\ClientModelResult.class
 com\NuaDashboard\angularbeans\AngularbeanUserCnx.class
 com\NuaDashboard\angularbeans\AngularbeanMsg.class
 com\NuaDashboard\angularbeans\AngularbeanGesInterne.class
