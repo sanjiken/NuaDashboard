@@ -1,6 +1,8 @@
 com\NuaDashboard\service\ProjectEntityService.class
 com\NuaDashboard\entity\UserEntity.class
 com\NuaDashboard\model\UserModelResultCnx.class
+com\NuaDashboard\model\ModelCltResult.class
+com\NuaDashboard\service\CltEntityService.class
 com\NuaDashboard\model\UserModelResultAdd.class
 com\NuaDashboard\entity\ProjetEntity.class
 com\NuaDashboard\service\MsgEntityService.class
@@ -17,6 +19,7 @@ com\NuaDashboard\angularbeans\AngularbeanGesInterne.class
 com\NuaDashboard\entity\RoleEntity.class
 com\NuaDashboard\angularbeans\AngularbeanUserInsc.class
 com\NuaDashboard\model\UserModelRequestCnx.class
+com\NuaDashboard\angularbeans\AngularbeanGesClt.class
 com\NuaDashboard\angularbeans\AngularbeanProjet.class
 com\NuaDashboard\model\ListContactModelResult.class
 com\NuaDashboard\entity\MessageEntity.class
