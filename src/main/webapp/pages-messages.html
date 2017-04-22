@@ -27,6 +27,7 @@
 		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerMsg.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerSommaire.js"></script>
+			<script type="text/javascript" src="js/controllers/controllerGesClt.js"></script>
 		<script type="text/javascript" src="js/module.js"></script>
 		
 		
@@ -220,7 +221,7 @@
                             <h2><span class="fa fa-comments"></span> Messages</h2>
                         </div>                                                    
                         <div class="pull-right">                            
-                            <button class="btn btn-danger"><span class="fa fa-book"></span> Contacts</button>
+                            <button class="btn btn-info"><span class="glyphicon glyphicon-envelope"></span></button>
                             <button class="btn btn-default content-frame-right-toggle"><span class="fa fa-bars"></span></button>
                         </div>                           
                     </div>
@@ -231,44 +232,35 @@
                         
                         <div class="list-group list-group-contacts border-bottom push-down-10" ng-show="superUser">
                             <a href="#" class="list-group-item" ng-repeat="pers in findIntClt">                                 
-                                <div class="list-group-status status-online"></div>
-                               <!-- <img src="assets/images/users/{{person.userName}}.jpg" class="pull-left" alt="{{Sa.userName}}" > -->
+                           <button class="btn btn-info" ng-click="contacterJs(pers.id)"><span class="glyphicon glyphicon-envelope"></span></button> 
+                       <!-- <img src="assets/images/users/{{person.userName}}.jpg" class="pull-left" alt="{{Sa.userName}}" > -->
                                 <span class="contacts-title">{{pers.userName}}</span>
-                                <button ng-click="contacterJs(pers.id)">contact</button>  
                             </a>                                
                             
                         </div>
                         
                         <div class="list-group list-group-contacts border-bottom push-down-10" ng-show="client" >
                             <a href="#" class="list-group-item" ng-repeat="pers in findIntSa">                                 
-                                <div class="list-group-status status-online"></div>
+                             <button class="btn btn-info" ng-click="contacterJs(pers.id)"><span class="glyphicon glyphicon-envelope"></span></button> 
+
                                 <!--  <img src="assets/images/users/{{Clt.userName}}.jpg" class="pull-left"  alt="{{Clt.userName}}" >-->
                                 <span class="contacts-title">{{pers.userName}}</span>
-                                 <button ng-click="contacterJs(pers.id)">contact</button>
                             </a>                                
                             
                         </div>
                         
                        <div class="list-group list-group-contacts border-bottom push-down-10" ng-show="interne">
                             <a href="#" class="list-group-item" ng-repeat="pers in findIntSaClt">                                 
-                                <div class="list-group-status status-online"></div>
+                             <button class="btn btn-info" ng-click="contacterJs(pers.id)"><span class="glyphicon glyphicon-envelope"></span></button> 
+
                                <!-- <img src="assets/images/users/{{Inte.userName}}.jpg" class="pull-left" alt="{{Inte.userName}}" > -->
-                                
-                            <button class="btn btn-success" ng-click="contacterJs(pers.id)"><i class="glyphicon glyphicon-user"></i></button>
+          
                             <span class="contacts-title">{{pers.userName}}</span>
                          
                             </a>                                
                             
                         </div>
-                        
-                        <div class="block">
-                            <h4>Status</h4>
-                            <div class="list-group list-group-simple">                                
-                                <a href="#" class="list-group-item"><span class="fa fa-circle text-success"></span> Online</a>
-                                <a href="#" class="list-group-item"><span class="fa fa-circle text-warning"></span> Away</a>
-                                <a href="#" class="list-group-item"><span class="fa fa-circle text-muted"></span> Offline</a>                                
-                            </div>
-                        </div>
+                      
                         
                     </div>
                     <!-- END CONTENT FRAME RIGHT -->
@@ -279,11 +271,12 @@
                         
                         <div class="messages messages-img">
                         
-                        <div  ng-repeat="msge in msgUserprim" >
-                           <div class="item in" ng-show="msge.isMe">
-                          
+                       
+                           <div class="item in" >
+                           <div  ng-repeat="msge in msgUserprim" >
                                 <div class="image">
-                                    <img src="assets/images/users/no-image.jpg" alt="John Doe">
+                       
+                                    <img src="assets/images/{{msge.UserActor.userName}}.jpeg" alt="John Doe">
                                 </div>
                                 <div class="text" >
                                     <div class="heading">
@@ -293,11 +286,11 @@
                                     </div>
                                     {{msge.contenuMesg}}
                                 </div>
-                             
+                             </div>
                            </div>
                            
                            
-                           <div class="item" ng-show="!msge.isMe">
+                          <!-- <div class="item" ng-show="!msge.isMe">
                                 <div class="image" >
                                     <img src="assets/images/users/no-image.jpg" alt="Dmitry Ivaniuk">
                                 </div>                                
@@ -310,9 +303,9 @@
                                    {{msge.contenuMesg}}
                                 </div>
                           
-                        </div> 
+                        </div>--> 
                          
-                        </div>                      
+                                             
                         </div>
                         </div>
                         <div class="panel panel-default push-up-10">

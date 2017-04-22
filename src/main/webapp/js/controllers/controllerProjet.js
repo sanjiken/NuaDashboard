@@ -83,6 +83,7 @@ var role = $cookies.get('role');
  		}
      
      } 
+
      
     $scope.edit=false;
     $scope.projetedit = {};

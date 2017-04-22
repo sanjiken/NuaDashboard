@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
     <head>        
         <!-- META SECTION -->
         <title>Nuage Dashboard</title>            
@@ -20,9 +20,9 @@
 		<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 		<script type="text/javascript" src="angular-beans.js"></script> 
 		<script type="text/javascript" src="js/controllers/controllerGestInterne.js"></script>
+		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerInsc.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerCnx.js"></script>
-		<script type="text/javascript" src="js/controllers/controllerProjet.js"></script>
 		<script type="text/javascript" src="js/controllers/ControllerIndex.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerprofil.js"></script>
 		<script type="text/javascript" src="js/controllers/controllerMsg.js"></script>
@@ -31,7 +31,7 @@
 		
                                          
     </head>
-    <body ng-app="myModule"  ng-controller="InternCtrl as vm" >
+    <body ng-app="myModule"  ng-controller="InternCtrl as vm">
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
             
@@ -58,7 +58,7 @@
                     <li>
                         <a href="page_project.html"><span class="fa fa-list-ul"></span> <span class="xn-text"><b>projet</b></span></a>
                     </li> 
-                    <li class="active">
+                    <li class="active" >
                        <a href="#"><span class="fa fa-cogs"></span><b> administration</b></a>
                            <ul>
                              <li ><a href="gestion_client.html" ><span class="fa fa-edit"></span> <b>gestion des clients</b></a></li>
@@ -67,7 +67,7 @@
                              
                            </ul>
                     </li>
-                     <li>
+                   <li>
                         <a href="pages-messages.html"><span class="fa fa-comments"></span> <span class="xn-text"><b>contact us</b></span></a>
                     </li> 
                      <li>
@@ -84,6 +84,9 @@
                     </li> 
                    
                    
+           
+                  
+                <!-- END X-NAVIGATION -->
             </div>
             <!-- END PAGE SIDEBAR -->
             
@@ -205,16 +208,17 @@
                 </ul>
                 <!-- END X-NAVIGATION VERTICAL -->                     
 
-                <!-- START BREADCRUMB -->
+               
+             <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>                    
+                    <li><a href="http://localhost:8090/NuaDashboard/gestion_interns.html#">Home</a></li>                    
                     <li class="active">Dashboard</li>
                     <li class="active">projet</li>
                 </ul>
                 <div class="col-md-5" >
                      <div class="alert alert-success"role="alert"  ng-show="alertEdit">
                                  <button class="close" data-dismiss="alert">
-                                 <span aria-hidden="true">×</span>
+                                 <span aria-hidden="true">*</span>
                                  <span class="sr-only">Close</span>
                                  </button>
                                  <strong>!!!! interne sera client:</strong>
@@ -222,7 +226,7 @@
                               </div>
                       <div class="alert alert-success"role="alert"  ng-show="alertEror">
                                  <button class="close" data-dismiss="alert">
-                                 <span aria-hidden="true">×</span>
+                                 <span aria-hidden="true">*</span>
                                  <span class="sr-only">Close</span>
                                  </button>
                                  <strong>!!!!supprimer interne</strong>
@@ -231,7 +235,7 @@
                      
                       <div class="alert alert-success"role="alert"  ng-show="alertDesact">
                                  <button class="close" data-dismiss="alert">
-                                 <span aria-hidden="true">×</span>
+                                 <span aria-hidden="true">*</span>
                                  <span class="sr-only">Close</span>
                                  </button>
                                  <strong>!!!desactive interne</strong>
@@ -245,7 +249,7 @@
                 <!-- END BREADCRUMB -->  
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Table intern</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Table project</h2>
                 </div>
                 <!-- END PAGE TITLE -->                 
                 
@@ -260,8 +264,9 @@
                             <!-- START DATATABLE EXPORT -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">liste de interns</h3>
+                                    <h3 class="panel-title">liste des internes</h3>
                                     <div class="btn-group pull-right">
+                                  <button ng-click="newprojetJs()" class="btn btn btn-info">new</button>
                                         <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
                                         <ul class="dropdown-menu">
                                             <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='img/icons/json.png' width="24"/> JSON</a></li>
@@ -284,10 +289,9 @@
                                     </div>                                    
                                     
                                 </div>
-                               
                                 <div class="panel-body">
-                                
                                     <table id="customers2" class="table datatable">
+
                                         <thead>
                                             <tr>
                                                 <th>nom_intern</th>
@@ -295,7 +299,6 @@
                                                 <th>numtel_intern</th>
                                                 <th>adress_intern</th>
                                                 <th>action</th>
-                                              
                                             </tr>
                                         </thead>
                                         <tbody ng-repeat="intern in findIntern">
@@ -304,13 +307,16 @@
                                                 <td>{{intern.email}}</td>
                                                 <td>{{intern.numtel}}</td>
                                                 <td>{{intern.adress}}</td>
-                                                <td><button ng-click="desactiveInternJs(intern.id)" class="btn btn-warning" >desactiver</button> <button ng-click="editInternJs(intern.id)" class="btn btn btn-info">edit</button><button ng-click="suppInternJs(intern.id)" class="panel-remove">delete</button></td> 
+                                                <td><button ng-click="desactiveInternJs(intern.id)" class="btn btn btn-info" >desactiver</button> <button ng-click="editInternJs(intern.id)" class="btn btn btn-info">edit</button><button ng-click="suppInternJs(intern.id)" class="btn btn btn-info">delete</button></td> 
                                             </tr>
 
                                         </tbody>
-                                    </table>                                    
-                                    
+                                    </table>                       
+                       
+                 
                                 </div>
+                                
+                            </div>
                             </div>
                             <!-- END DATATABLE EXPORT -->                            
                             
@@ -353,7 +359,7 @@
                                         </div>
                                     </div>                               
                                 </div>
-                               
+                            
                             </div>
                             <!-- END DEFAULT TABLE EXPORT -->
 
@@ -441,6 +447,9 @@
     <!-- END SCRIPTS -->                 
     </body>
 </html>
+
+
+
 
 
 
